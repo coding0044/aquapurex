@@ -82,7 +82,7 @@ const WhySection = () => {
       id: 1,
       icon: '⚙',
       title: 'Advanced RO + UV Technology',
-      text: 'Multi-stage Reverse Osmosis and UV treatment remove impurities, dissolved salts, heavy metals, and microorganisms for complete peace of mind.',
+text: 'RO and UV purification remove harmful impurities for safe, clean water.',
       gradient: 'linear-gradient(135deg, #005faf, #0066cc)',
       stats: '99.9% Pure'
     },
@@ -149,21 +149,7 @@ const WhySection = () => {
             but refreshing in every sip.
           </p>
           
-          {/* Trust Indicators */}
-          <div className="trust-indicators">
-            <div className="trust-item">
-              <div className="trust-number">10M+</div>
-              <div className="trust-label">Liters Purified</div>
-            </div>
-            <div className="trust-item">
-              <div className="trust-number">24/7</div>
-              <div className="trust-label">Support</div>
-            </div>
-            <div className="trust-item">
-              <div className="trust-number">100%</div>
-              <div className="trust-label">Satisfaction</div>
-            </div>
-          </div>
+   
         </div>
 
         {/* Enhanced Main Grid */}
@@ -185,9 +171,11 @@ const WhySection = () => {
                   >
                     {card.icon}
                   </div>
-                  <div className="card-stats">{card.stats}</div>
                 </div>
-                <h3 className="card-title">{card.title}</h3>
+                <h3 className="card-title" style={{
+                                    fontSize:'13px'
+
+                }}>{card.title}</h3>
                 <p className="card-text">{card.text}</p>
               </div>
             ))}

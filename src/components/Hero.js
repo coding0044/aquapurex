@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-
+import './Hero.css';
 const Hero = ({ scrollToId }) => {
     const [rotateX, setRotateX] = useState(0);
     const [rotateY, setRotateY] = useState(0);
@@ -180,11 +180,7 @@ const Hero = ({ scrollToId }) => {
                 <p className="hero-text" style={{ fontSize: '1.15rem', marginBottom: '1.5rem', color: '#333' }}>
                     AquaPureX delivers clean, great-tasting water for your home and office. We purify every drop with RO + UV and balanced minerals.
                 </p>
-                <div className="hero-badges" style={{ display: 'flex', fontStyle:'bold', gap: '1rem', marginBottom: '1.5rem' }}>
-                    <div className="badge" style={{ background: '#e0f3ff', padding: '0.5rem 1rem', borderRadius: '20px' }}>100% Bacteria & Virus Free</div>
-                    <div className="badge" style={{ background: '#e0f3ff', padding: '0.5rem 1rem', borderRadius: '20px' }}>Premium German Minerals</div>
-                    <div className="badge" style={{ background: '#e0f3ff', padding: '0.5rem 1rem', borderRadius: '20px' }}>Free Home Delivery in Lahore</div>
-                </div>
+
                 <div className="heroCta" style={{ display: 'flex', gap: '1rem' }}>
                     <button
                         className="ctaPrimary"
@@ -228,12 +224,7 @@ const Hero = ({ scrollToId }) => {
             {/* Right section now holds TWO synchronized bottles (left & right) */}
             <div
                 className="hero-right"
-                onPointerDown={handlePointerDown}
-                onPointerMove={handlePointerMove}
-                onTouchMove={handlePointerMove}
-                onMouseMove={handlePointerMove}
-                onPointerUp={handlePointerUp}
-                onMouseLeave={handleMouseLeave}
+
                 style={{
                     perspective: '1000px',
                     flex: '1',
@@ -249,23 +240,24 @@ const Hero = ({ scrollToId }) => {
 
 
                 {/* container for the two bottles */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', transformStyle: 'preserve-3d' }}>
+                <div style={{
+                    display: 'flex', marginTop: '49px',
+                    alignItems: 'center', gap: '2rem', transformStyle: 'preserve-3d'
+                }}>
                     {/* Left bottle */}
                     <div
                         className="bottle-left"
                         style={{
-                            transform: `translateY(${floating}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
-                            transition: draggingRef.current ? 'transform 0s' : 'transform 120ms linear',
-                            transformStyle: 'preserve-3d',
                             display: 'inline-block',
                             borderRadius: '20px',
+                            boxShadow: '0 15px 35px rgba(19, 134, 250, 0.97)',
                             padding: '10px',
-                            background: 'rgba(255,255,255,0.02)',
-                            boxShadow: `${shadowOffsetX}px ${shadowOffsetY}px ${shadowBlur}px rgba(0,30,60,0.22)`,
+                            background: 'rgba(255, 255, 255, 0.02)',
                             willChange: 'transform, box-shadow',
                             cursor: isHovering ? 'grabbing' : 'grab',
-                            userSelect: 'none'
+                            userSelect: 'none',
                         }}
+
                     >
 
                     </div>
@@ -274,15 +266,13 @@ const Hero = ({ scrollToId }) => {
                     <div
                         className="bottle-right"
                         style={{
-                            transform: `translateY(${floating}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scaleX(-1)`,
-                            transition: draggingRef.current ? 'transform 0s' : 'transform 120ms linear',
-                            transformStyle: 'preserve-3d',
+
                             display: 'inline-block',
                             marginTop: '-63px',
                             borderRadius: '20px',
                             padding: '10px',
                             background: 'rgba(255,255,255,0.02)',
-                            boxShadow: `${-shadowOffsetX}px ${shadowOffsetY}px ${shadowBlur}px rgba(19, 134, 250, 0.97)`,
+                            boxShadow: '0 15px 35px rgba(19, 134, 250, 0.97)',
                             willChange: 'transform, box-shadow',
                             cursor: isHovering ? 'grabbing' : 'grab',
                             userSelect: 'none'
@@ -297,11 +287,10 @@ const Hero = ({ scrollToId }) => {
                                 width: '466px',
                                 height: 'auto',
                                 display: 'block',
+                                width: '491px',
 
                                 borderRadius: '16px',
-                                filter: `brightness(${1 + Math.sin((rotateY % 360) * Math.PI / 180) * 0.07}) contrast(1.02)`,
-                                transition: 'filter 100ms linear',
-                                transform: 'scaleX(-1)' // flip the image so mirrored container works nicely
+                                // flip the image so mirrored container works nicely
                             }}
                             draggable={false}
                         />
