@@ -82,7 +82,7 @@ const WhySection = () => {
       id: 1,
       icon: '⚙',
       title: 'Advanced RO + UV Technology',
-text: 'RO and UV purification remove harmful impurities for safe, clean water.',
+      text: 'RO + UV removes impurities for safe, clean water.',
       gradient: 'linear-gradient(135deg, #005faf, #0066cc)',
       stats: '99.9% Pure'
     },
@@ -90,7 +90,7 @@ text: 'RO and UV purification remove harmful impurities for safe, clean water.',
       id: 2,
       icon: '💧',
       title: 'Balanced German Minerals',
-      text: 'We enhance purified water with premium imported minerals to support hydration and provide a smooth, clean taste with every glass.',
+    text: 'Adds essential minerals for smooth, clean taste',
       gradient: 'linear-gradient(135deg, #005faf, #0066cc)',
       stats: '7 Essential Minerals'
     },
@@ -98,7 +98,7 @@ text: 'RO and UV purification remove harmful impurities for safe, clean water.',
       id: 3,
       icon: '👨‍👩‍👧',
       title: 'Safe for All Ages',
-      text: 'Gentle on the stomach and ideal for children, adults, and seniors alike, AquaPureX is designed for everyday household consumption.',
+      text: 'Enhanced with premium minerals for smooth, clean, and refreshing water.',
       gradient: 'linear-gradient(135deg, #005faf, #0066cc)',
       stats: 'Family Approved'
     },
@@ -106,7 +106,7 @@ text: 'RO and UV purification remove harmful impurities for safe, clean water.',
       id: 4,
       icon: '🚚',
       title: 'Free Delivery in Lahore',
-      text: 'Enjoy fast, reliable, and free home delivery across major areas of Lahore — directly to your home, office, or shop.',
+      text: 'Fast, reliable, free delivery across Lahore to home, office, or shop.',
       gradient: 'linear-gradient(135deg, #005faf, #0066cc)',
       stats: 'Same Day Delivery'
     },
@@ -114,7 +114,7 @@ text: 'RO and UV purification remove harmful impurities for safe, clean water.',
 
   return (
     <section 
-      id="why AquaPureX" 
+      id="why" 
       className={`why-section ${inView ? 'section-visible' : ''}`}
       style={{
         '--scroll-progress': scrollProgress,
@@ -149,14 +149,14 @@ text: 'RO and UV purification remove harmful impurities for safe, clean water.',
             but refreshing in every sip.
           </p>
           
-   
+         
         </div>
 
         {/* Enhanced Main Grid */}
         <div className="why-grid">
           {/* Cards with Stats */}
           <div className="why-points">
-            {cards.map((card, index) => (
+            {cards.map((card) => (
               <div 
                 key={card.id}
                 className={`card card-${card.id} ${hoveredCard === card.id ? 'card-active' : ''}`}
@@ -164,19 +164,26 @@ text: 'RO and UV purification remove harmful impurities for safe, clean water.',
                 onMouseLeave={() => setHoveredCard(null)}
               >
                 <div className="card-glow"></div>
-                <div className="card-header">
-                  <div 
-                    className="badge-icon"
-                    style={{ background: card.gradient }}
-                  >
-                    {card.icon}
+                <div className="card-content-wrapper">
+                  <div className="card-icon-container">
+                    <div 
+                      className="badge-icon"
+                      style={{ background: card.gradient }}
+                    >
+                      {card.icon}
+                    </div>
+                  </div>
+                  <div className="card-content">
+                    <div className="card-header">
+                      <h3 className="card-title" style={{
+                        fontSize:'14px'
+                      }}>{card.title}</h3>
+                    </div>
+                    <p className="card-text" style={{
+
+                    }}>{card.text}</p>
                   </div>
                 </div>
-                <h3 className="card-title" style={{
-                                    fontSize:'13px'
-
-                }}>{card.title}</h3>
-                <p className="card-text">{card.text}</p>
               </div>
             ))}
           </div>
@@ -186,14 +193,12 @@ text: 'RO and UV purification remove harmful impurities for safe, clean water.',
             <div className="why-image-glow"></div>
             <div className="why-image-inner">
               <div>
-                <div className="why-image-title" style={{
-                  color:'black',
-                }}>
+                <div className="why-image-title">
                   <span className="title-sparkle">✨</span>
                   Because your family deserves better water.
                 </div>
                 <div className="why-tags">
-                  {['RO + UV Purified', 'Lab Tested', 'Kids Friendly', 'Daily Hydration', 'pH Balanced', 'Eco-Friendly'].map((tag, i) => (
+                  {['RO + UV Purified', 'Lab Tested', 'Kids Friendly', 'Daily Hydration'].map((tag, i) => (
                     <div 
                       key={i} 
                       className="why-tag"
@@ -228,9 +233,7 @@ text: 'RO and UV purification remove harmful impurities for safe, clean water.',
                       transition: meterAnimation ? 'width 1.5s ease-out' : 'none'
                     }}
                   >
-                    <div className="water-waves" style={{
-                      background:'linear-gradient(135deg, #005faf, #0066cc)',
-                    }}>
+                    <div className="water-waves">
                       <div className="water-wave"></div>
                       <div className="water-wave"></div>
                     </div>
@@ -246,16 +249,12 @@ text: 'RO and UV purification remove harmful impurities for safe, clean water.',
                   </div>
                 </div>
                 
-            
-                
-        
+               
               </div>
 
               <div className="why-note">
                 <div className="note-icon">💡</div>
-                <div style={{
-                color:'black',
-                                }}>
+                <div className="note-text">
                   <strong>Pro Tip:</strong> From morning tea to evening meals, 
                   AquaPureX keeps every glass on your table clean, safe, and refreshing.
                 </div>
@@ -264,10 +263,9 @@ text: 'RO and UV purification remove harmful impurities for safe, clean water.',
           </div>
         </div>
 
-    
-    <br />
-    <br />
-    <br />
+        <br />
+        <br />
+        <br />
       </div>
     </section>
   );

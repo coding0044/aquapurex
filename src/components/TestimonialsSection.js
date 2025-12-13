@@ -116,7 +116,9 @@ const TestimonialsSection = () => {
           <div className="section-kicker">Customer Stories</div>
           <h2 className="section-title">
             Trusted by
-            <span className="highlight-text"> Hundreds of Families</span>
+            <span className="highlight-text" style={{
+              marginLeft: '9px'
+            }}>  Households</span>
             Across Lahore
           </h2>
 

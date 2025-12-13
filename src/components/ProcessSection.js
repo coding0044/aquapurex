@@ -84,9 +84,7 @@ const ProcessSection = () => {
         </div>
 
         {/* Cards */}
-        <div className="process-grid" style={{
-          width: '1300px',
-        }}>
+        <div className="process-grid">
           {steps.map((step, index) => (
             <div
               key={index}
