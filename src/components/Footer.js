@@ -28,7 +28,11 @@ const Footer = ({ scrollToId }) => {
         <div className="footer-grid">
           <div>
             <div className="brand" style={{marginBottom: '0.75rem'}} onClick={() => scrollToId('hero')}>
-              <div className="brand-logo">
+              <div className="brand-logo" style={{
+                    width: '70px',
+    height: '70px',
+    borderRadius: '4px'
+              }}>
                 <img src="images/360/bottle-360/LogoDesign.png" alt="AquaPureX logo" />
               </div>
               <div>

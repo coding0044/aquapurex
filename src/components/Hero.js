@@ -174,7 +174,7 @@ const Hero = ({ scrollToId }) => {
                     Premium Mineral Water
                 </div>
                 <h1 className="hero-title" style={{ fontSize: '3rem', marginBottom: '1rem', lineHeight: 1.02 }}>
-                    Pure Water. <span className="hero-highlight" style={{ color: '#00aaff' }}>Advanced Technology.</span><br />
+                    Pure Water. <span className="hero-highlight" >Advanced Technology.</span><br />
                     Trusted by Families.
                 </h1>
                 <p className="hero-text" style={{ fontSize: '1.15rem', marginBottom: '1.5rem', color: '#333' }}>

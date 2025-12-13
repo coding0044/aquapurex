@@ -114,7 +114,7 @@ const WhySection = () => {
 
   return (
     <section 
-      id="why" 
+      id="why AquaPureX" 
       className={`why-section ${inView ? 'section-visible' : ''}`}
       style={{
         '--scroll-progress': scrollProgress,

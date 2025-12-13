@@ -86,7 +86,7 @@ const Header = ({ scrollToId }) => {
 
         {/* LINKS */}
         <div className="nav-links">
-          {['hero', 'why', 'products', 'process', 'contact'].map((item) => (
+          {['hero', 'why AquaPureX', 'products', 'process', 'contact'].map((item) => (
             <a
               key={item}
               href={`#${item}`}
@@ -136,7 +136,7 @@ const Header = ({ scrollToId }) => {
       {/* MOBILE MENU */}
       {isMobileMenuOpen && (
         <div className="nav-mobile">
-          {['hero', 'why', 'products', 'process', 'order', 'contact'].map(
+          {['hero', 'why AquaPureX', 'products', 'process',  'contact'].map(
             (item) => (
               <a key={item} onClick={() => handleNavClick(item)}>
                 {item === 'hero'
