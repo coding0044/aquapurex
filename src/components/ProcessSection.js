@@ -16,41 +16,32 @@ const ProcessSection = () => {
       step: "Step 1",
       title: "Sediment Filtration",
       text: "Removes dust, sand, rust, and visible particles to prepare the water for deeper purification.",
-      icon: "🔍",
-      time: "5 mins",
-      efficiency: "99.8%"
+      icon: "🔍"
     },
     {
       step: "Step 2",
       title: "Activated Carbon Filtration",
       text: "Reduces chlorine, organic contaminants, and unpleasant odors to improve base taste and safety.",
-      icon: "🌫️",
-      time: "3 mins",
-      efficiency: "99.5%"
+      icon: "🌫️"
     },
     {
       step: "Step 3",
       title: "Reverse Osmosis (RO)",
       text: "Forces water through a fine membrane to remove dissolved salts, heavy metals, and micro-impurities.",
-      icon: "⚡",
-      time: "8 mins",
-      efficiency: "99.9%"
+      icon: "⚡"
     },
     {
       step: "Step 4",
       title: "UV Sterilization",
       text: "Uses ultraviolet light to neutralize bacteria and viruses without adding any chemicals.",
-      icon: "💡",
-      time: "2 mins",
-      efficiency: "99.99%"
+      icon: "💡"
+  
     },
     {
       step: "Step 5",
       title: "Mineral Enhancement",
       text: "Reintroduces essential minerals from premium German sources to create balanced, great-tasting water.",
-      icon: "💎",
-      time: "4 mins",
-      efficiency: "100%"
+      icon: "💎"
     }
   ];
 
@@ -107,17 +98,8 @@ const ProcessSection = () => {
               <p className="step-text">{step.text}</p>
               
               {/* Card Footer with Stats */}
-              <div className="card-footer">
-                <div className="card-stat">
-                  <span className="stat-label">Time</span>
-                  <span className="stat-value">{step.time}</span>
-                </div>
-                <div className="card-stat">
-                  <span className="stat-label">Efficiency</span>
-                  <span className="stat-value">{step.efficiency}</span>
-                </div>
-              </div>
-
+              
+              
               {/* Hover Effect Indicator */}
               <div className="card-hover-indicator"></div>
             </div>
@@ -151,20 +133,7 @@ const ProcessSection = () => {
         </div>
 
         {/* Summary Stats */}
-        <div className="process-summary">
-          <div className="summary-stat">
-            <div className="stat-number">99.99%</div>
-            <div className="stat-label">Purity Level</div>
-          </div>
-          <div className="summary-stat">
-            <div className="stat-number">5</div>
-            <div className="stat-label">Purification Steps</div>
-          </div>
-          <div className="summary-stat">
-            <div className="stat-number">24/7</div>
-            <div className="stat-label">Quality Monitoring</div>
-          </div>
-        </div>
+        
       </div>
     </section>
   );

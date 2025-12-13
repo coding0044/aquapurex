@@ -139,7 +139,10 @@ const ProductsSection = () => {
               ${productGradients[selectedProduct].replace(')', ', 0.03)')}`
           }}
         >
-          <div className="summary-header">
+          <div className="summary-header" style={{
+maxWidth:'1097px',
+            
+          }}>
             <h3 className="card-title">{products[selectedProduct].title}</h3>
             <span className="summary-tag">{products[selectedProduct].tag}</span>
           </div>

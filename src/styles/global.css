@@ -415,6 +415,8 @@ a {
 .product-summary {
   margin-top: 1.4rem;
   animation: fadeIn 0.8s ease;
+      max-width: 1191px;
+
 }
 
 /* Process section */
