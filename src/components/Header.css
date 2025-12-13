@@ -1,0 +1,255 @@
+:root {
+  --navy: #003b73;
+  --primary: #1386fa;
+}
+
+/* ================= HEADER ================= */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(0, 59, 115, 0.92);
+  backdrop-filter: blur(14px);
+  transition: transform 0.35s ease;
+}
+
+header.hidden {
+  transform: translateY(-110%);
+}
+
+/* ================= NAV ================= */
+.nav {
+  max-width: 1650px;
+  margin: auto;
+  padding: 0.8rem 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ================= BRAND ================= */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  cursor: pointer;
+}
+
+.brand-logo {
+  height: 52px;
+}
+
+.brand-text-title {
+  color: white;
+  font-weight: 600;
+  font-size: 1.15rem;
+}
+
+.brand-text-sub {
+  font-size: 0.75rem;
+  color: #cfe7ff;
+}
+
+/* ================= LINKS ================= */
+.nav-links {
+  display: flex;
+  gap: 1.4rem;
+}
+
+.nav-links a {
+  color: #e5f1ff;
+  font-size: 0.92rem;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #6dd5ff, white);
+  transition: width 0.3s ease;
+}
+
+
+/* ================= SAME BUTTON STYLE ================= */
+.btn-action {
+  background: linear-gradient(135deg, #1da1f2, #0066cc);
+  color: white;
+  border: none;
+  padding: 0.55rem 1.6rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(0, 102, 204, 0.45);
+  transition: all 0.25s ease;
+}
+/* ================= CTA CONTAINER ================= */
+.nav-cta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ================= SAME BUTTON STYLE ================= */
+.btn-action {
+  padding: 0.65rem 1.2rem;
+  border-radius: var(--radius-md, 999px);
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #1da1f2, #0066cc);
+  color: white;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover */
+.btn-action:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 35px rgba(0, 102, 204, 0.5);
+}
+
+/* Active */
+.btn-action:active {
+  transform: scale(0.97);
+}
+
+
+/* Hover */
+.btn-action:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(0, 102, 204, 0.55);
+}
+
+/* Click */
+.btn-action:active {
+  transform: scale(0.97);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-links a.active {
+  color: white;
+  font-weight: 600;
+}
+
+/* ================= CTA BUTTONS ================= */
+.nav-cta {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btn {
+  border-radius: 999px;
+  padding: 0.5rem 1.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Outline */
+.btn-outline {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Primary */
+.btn-primary {
+  background: linear-gradient(135deg, #1da1f2, #0066cc);
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+}
+
+/* ================= MOBILE ================= */
+.nav-toggle {
+  display: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: white;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-toggle span,
+.nav-toggle span::before,
+.nav-toggle span::after {
+  content: '';
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--navy);
+  transition: 0.3s;
+}
+
+.nav-toggle span::before {
+  transform: translateY(-5px);
+}
+
+.nav-toggle span::after {
+  transform: translateY(5px);
+}
+
+.nav-toggle.active span {
+  background: transparent;
+}
+
+.nav-toggle.active span::before {
+  transform: rotate(45deg);
+}
+
+.nav-toggle.active span::after {
+  transform: rotate(-45deg);
+}
+
+.nav-mobile {
+  background: rgba(0, 59, 115, 0.98);
+  padding: 1rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.nav-mobile a {
+  color: white;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .nav-links,
+  .nav-cta {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
