@@ -470,14 +470,15 @@
   font-size: 1rem;
   opacity: 0.95;
   padding: 0.75rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: #7dd3fc59;
   border-radius: var(--radius-sm);
   transition: all 0.3s ease;
 }
 
 .cta-feature:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: #83d4fa3a;
   transform: translateX(5px);
+  cursor: pointer;
 }
 
 .feature-icon {
@@ -530,24 +531,18 @@
 }
 
 .btn-whatsapp {
-  background: linear-gradient(135deg, #25D366, #128C7E);
+  background: #7dd3fc59;
   color: white;
-  box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
 }
 
-.btn-whatsapp:hover {
-  box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
-}
 
 .btn-call {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+  background: #7dd3fc59;
   color: white;
-  border: 2px solid rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(10px);
 }
 
 .btn-call:hover {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.15));
   border-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -661,11 +656,10 @@
   gap: 1rem;
   flex-wrap: wrap;
   padding: 1.25rem;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius-md);
-  backdrop-filter: blur(10px);
+  background: #7dd3fc59;
+  border-radius: 10px;
+  color: white;
   margin-bottom: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .phone-icon {
@@ -677,7 +671,7 @@
   font-weight: 700;
   letter-spacing: 0.5px;
   font-size: 1.1rem;
-  color: #7dd3fc;
+  color: white;
 }
 
 .phone-separator {
@@ -692,7 +686,6 @@
 }
 
 .highlight {
-  color: #fbbf24;
   font-weight: 700;
 }
 

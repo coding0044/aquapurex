@@ -83,7 +83,7 @@ const WhySection = () => {
       icon: '⚙',
       title: 'Advanced RO + UV Technology',
       text: 'Multi-stage Reverse Osmosis and UV treatment remove impurities, dissolved salts, heavy metals, and microorganisms for complete peace of mind.',
-      gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      gradient: 'linear-gradient(135deg, #005faf, #0066cc)',
       stats: '99.9% Pure'
     },
     {
@@ -91,7 +91,7 @@ const WhySection = () => {
       icon: '💧',
       title: 'Balanced German Minerals',
       text: 'We enhance purified water with premium imported minerals to support hydration and provide a smooth, clean taste with every glass.',
-      gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+      gradient: 'linear-gradient(135deg, #005faf, #0066cc)',
       stats: '7 Essential Minerals'
     },
     {
@@ -99,7 +99,7 @@ const WhySection = () => {
       icon: '👨‍👩‍👧',
       title: 'Safe for All Ages',
       text: 'Gentle on the stomach and ideal for children, adults, and seniors alike, AquaPureX is designed for everyday household consumption.',
-      gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+      gradient: 'linear-gradient(135deg, #005faf, #0066cc)',
       stats: 'Family Approved'
     },
     {
@@ -107,7 +107,7 @@ const WhySection = () => {
       icon: '🚚',
       title: 'Free Delivery in Lahore',
       text: 'Enjoy fast, reliable, and free home delivery across major areas of Lahore — directly to your home, office, or shop.',
-      gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+      gradient: 'linear-gradient(135deg, #005faf, #0066cc)',
       stats: 'Same Day Delivery'
     },
   ];
@@ -198,7 +198,9 @@ const WhySection = () => {
             <div className="why-image-glow"></div>
             <div className="why-image-inner">
               <div>
-                <div className="why-image-title">
+                <div className="why-image-title" style={{
+                  color:'black',
+                }}>
                   <span className="title-sparkle">✨</span>
                   Because your family deserves better water.
                 </div>
@@ -238,7 +240,9 @@ const WhySection = () => {
                       transition: meterAnimation ? 'width 1.5s ease-out' : 'none'
                     }}
                   >
-                    <div className="water-waves">
+                    <div className="water-waves" style={{
+                      background:'linear-gradient(135deg, #005faf, #0066cc)',
+                    }}>
                       <div className="water-wave"></div>
                       <div className="water-wave"></div>
                     </div>
@@ -254,27 +258,16 @@ const WhySection = () => {
                   </div>
                 </div>
                 
-                <div className="meter-labels">
-                  <span>
-                    <span className="meter-emoji">⚠️</span>
-                    Impure
-                  </span>
-                  <span>
-                    <span className="meter-emoji">✅</span>
-                    Pure
-                  </span>
-                  <span>
-                    <span className="meter-emoji">✨</span>
-                    Excellent
-                  </span>
-                </div>
+            
                 
         
               </div>
 
               <div className="why-note">
                 <div className="note-icon">💡</div>
-                <div>
+                <div style={{
+                color:'black',
+                                }}>
                   <strong>Pro Tip:</strong> From morning tea to evening meals, 
                   AquaPureX keeps every glass on your table clean, safe, and refreshing.
                 </div>

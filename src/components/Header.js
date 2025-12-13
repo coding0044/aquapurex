@@ -1,14 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import './Header.css';
 
-const Header = ({ scrollToId, hidden }) => {
+const Header = ({ scrollToId }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [hidden, setHidden] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // 🔽 Hide header when scrolling down
+      if (currentScrollY > lastScrollY && currentScrollY > 120) {
+        setHidden(true);
+      }
+      // 🔼 Show header when scrolling up
+      else {
+        setHidden(false);
+      }
+
+      setLastScrollY(currentScrollY);
+
+      // Active section highlight
       const sections = ['hero', 'why', 'products', 'process', 'order', 'contact'];
-      const scrollPosition = window.scrollY + 120;
+      const scrollPosition = currentScrollY + 150;
 
       for (const section of sections) {
         const el = document.getElementById(section);
@@ -26,7 +42,7 @@ const Header = ({ scrollToId, hidden }) => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const handleNavClick = (id) => {
     scrollToId(id);
@@ -34,8 +50,25 @@ const Header = ({ scrollToId, hidden }) => {
   };
 
   return (
+    
     <header className={hidden ? 'hidden' : ''}>
+         <div class="top-bar">
+  <span class="left-text" style={{
+        fontSize:'17px',
+
+  }}>Free Home Delivery in Lahore</span>
+
+  <div class="top-bar-phones" style={{
+    fontSize:'17px',
+  }}>
+    <span  style={{
+    marginRight:'28px',
+  }}>Call: 0302-0758141 · 0371-1724801</span>
+    <span class="pill" >WhatsApp Orders Available</span>
+  </div>
+</div>
       <nav className="nav">
+
         {/* BRAND */}
         <div className="brand" onClick={() => handleNavClick('hero')}>
           <img
@@ -45,13 +78,15 @@ const Header = ({ scrollToId, hidden }) => {
           />
           <div>
             <div className="brand-text-title">AquaPureX</div>
-            <div className="brand-text-sub">Pure Water – Advanced Technology</div>
+            <div className="brand-text-sub">
+              Pure Water – Advanced Technology
+            </div>
           </div>
         </div>
 
         {/* LINKS */}
         <div className="nav-links">
-          {['hero', 'why AquaPureX', 'products', 'process', 'contact'].map((item) => (
+          {['hero', 'why', 'products', 'process', 'contact'].map((item) => (
             <a
               key={item}
               href={`#${item}`}
@@ -68,51 +103,26 @@ const Header = ({ scrollToId, hidden }) => {
           ))}
         </div>
 
-{/* CTA */}
-<div
-  className="nav-cta"
-  style={{
-    display: 'flex',
-    alignItems: 'center',
-    gap: '1rem'
-  }}
->
-  <button
-    onClick={() => handleNavClick('contact')}
-    style={{
-      padding: '0.67rem 1.2rem',
-      borderRadius: '999px',
-      fontSize: '0.95rem',
-      fontWeight: 700,
-      border: 'none',
-      cursor: 'pointer',
-      background: 'rgb(0, 95, 175)',
-      color: '#fff',
-      transition: 'all 0.3s ease'
-    }}
-  >
-    Call Us
-  </button>
+        {/* CTA */}
+        <div className="nav-cta" >
+          <button
+            className="btn-action"
+            onClick={() => handleNavClick('contact')}
+          style={{
+          background:'rgb(0, 95, 175)',
+        }}>
+            Call Us
+          </button>
 
-  <button
-    onClick={() => handleNavClick('order')}
-    style={{
-      padding: '0.67rem 1.2rem',
-      borderRadius: '999px',
-      fontSize: '0.95rem',
-      fontWeight: 700,
-      border: 'none',
-      cursor: 'pointer',
-      background: 'rgb(0, 95, 175)',
-      color: '#fff',
-      transition: 'all 0.3s ease'
-    }}
-  >
-    Order Online
-  </button>
-</div>
-
-
+          <button
+            className="btn-action"
+            onClick={() => handleNavClick('order')}
+          style={{
+          background:'rgb(0, 95, 175)',
+        }}>
+            Order Online
+          </button>
+        </div>
 
         {/* MOBILE TOGGLE */}
         <button
@@ -126,13 +136,15 @@ const Header = ({ scrollToId, hidden }) => {
       {/* MOBILE MENU */}
       {isMobileMenuOpen && (
         <div className="nav-mobile">
-          {['hero', 'why AquaPureX', 'products', 'process', 'order', 'contact'].map((item) => (
-            <a key={item} onClick={() => handleNavClick(item)}>
-              {item === 'hero'
-                ? 'Home'
-                : item.charAt(0).toUpperCase() + item.slice(1)}
-            </a>
-          ))}
+          {['hero', 'why', 'products', 'process', 'order', 'contact'].map(
+            (item) => (
+              <a key={item} onClick={() => handleNavClick(item)}>
+                {item === 'hero'
+                  ? 'Home'
+                  : item.charAt(0).toUpperCase() + item.slice(1)}
+              </a>
+            )
+          )}
         </div>
       )}
     </header>

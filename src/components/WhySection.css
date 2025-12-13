@@ -291,10 +291,10 @@
   opacity: 0.3;
 }
 
-.card-1 .card-glow { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-.card-2 .card-glow { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
-.card-3 .card-glow { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
-.card-4 .card-glow { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+.card-1 .card-glow { background: linear-gradient(135deg, #005faf, #0066cc); }
+.card-2 .card-glow { background: linear-gradient(135deg, #005faf, #0066cc); }
+.card-3 .card-glow { background: linear-gradient(135deg, #005faf, #0066cc); }
+.card-4 .card-glow { background: linear-gradient(135deg, #005faf, #0066cc); }
 
 .card-header {
   display: flex;
@@ -350,15 +350,16 @@
 .why-image {
   border-radius: 16px;
   min-height: 593px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+  padding: 1.2rem;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  padding: 1.2rem;
   transform-style: preserve-3d;
   perspective: 1000px;
-  border: 1px solid rgba(0, 95, 175, 0.08);
+  background:  rgba(111, 162, 213, 0.698); /* or any background color/image you want */
 }
+
+
 
 .why-image-glow {
   position: absolute;

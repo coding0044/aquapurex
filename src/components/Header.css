@@ -5,16 +5,68 @@
 
 /* ================= HEADER ================= */
 header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 100;
-  background: rgba(0, 59, 115, 0.92);
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(0, 59, 115, 0.95);
   backdrop-filter: blur(14px);
   transition: transform 0.35s ease;
 }
 
+/* Hide on scroll down */
 header.hidden {
-  transform: translateY(-110%);
+  transform: translateY(-100%);
+}
+
+/* ================= TOP BAR ================= */
+.top-bar {
+  background: linear-gradient(90deg, #0b4e8a, #0d63b8);
+  color: #eaf4ff;
+  font-size: 0.8rem;
+  padding: 0.35rem 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Pill style */
+.pill {
+  padding: 0.18rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  display: inline-block;
+  cursor: pointer;
+
+  /* Animation */
+  animation: pulse 2s infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for better interaction */
+.pill:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.35);
+}
+
+/* Pulse keyframes */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0.3);
+  }
 }
 
 /* ================= NAV ================= */
@@ -36,13 +88,13 @@ header.hidden {
 }
 
 .brand-logo {
-  height: 52px;
+  height: 50px;
 }
 
 .brand-text-title {
   color: white;
   font-weight: 600;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
 }
 
 .brand-text-sub {
@@ -75,67 +127,6 @@ header.hidden {
   transition: width 0.3s ease;
 }
 
-
-/* ================= SAME BUTTON STYLE ================= */
-.btn-action {
-  background: linear-gradient(135deg, #1da1f2, #0066cc);
-  color: white;
-  border: none;
-  padding: 0.55rem 1.6rem;
-  border-radius: 999px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  cursor: pointer;
-  box-shadow: 0 12px 28px rgba(0, 102, 204, 0.45);
-  transition: all 0.25s ease;
-}
-/* ================= CTA CONTAINER ================= */
-.nav-cta {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-/* ================= SAME BUTTON STYLE ================= */
-.btn-action {
-  padding: 0.65rem 1.2rem;
-  border-radius: var(--radius-md, 999px);
-  font-size: 0.85rem;
-  font-weight: 700;
-  border: none;
-  cursor: pointer;
-  background: linear-gradient(135deg, #1da1f2, #0066cc);
-  color: white;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Hover */
-.btn-action:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 35px rgba(0, 102, 204, 0.5);
-}
-
-/* Active */
-.btn-action:active {
-  transform: scale(0.97);
-}
-
-
-/* Hover */
-.btn-action:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 18px 40px rgba(0, 102, 204, 0.55);
-}
-
-/* Click */
-.btn-action:active {
-  transform: scale(0.97);
-}
-
 .nav-links a:hover::after,
 .nav-links a.active::after {
   width: 100%;
@@ -146,45 +137,36 @@ header.hidden {
   font-weight: 600;
 }
 
-/* ================= CTA BUTTONS ================= */
+/* ================= CTA ================= */
 .nav-cta {
   display: flex;
-  gap: 0.75rem;
+  gap: 0.8rem;
 }
 
-.btn {
+/* SAME BUTTON STYLE */
+.btn-action {
+  padding: 0.6rem 1.3rem;
   border-radius: 999px;
-  padding: 0.5rem 1.4rem;
   font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
+  font-weight: 700;
+  border: none;
   cursor: pointer;
+  background: linear-gradient(135deg, #1da1f2, #0066cc);
+  color: white;
+  box-shadow: 0 10px 28px rgba(0, 102, 204, 0.45);
   transition: all 0.25s ease;
 }
 
-/* Outline */
-.btn-outline {
-  background: transparent;
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-}
-
-.btn-outline:hover {
-  background: rgba(255, 255, 255, 0.15);
-}
-
-/* Primary */
-.btn-primary {
-  background: linear-gradient(135deg, #1da1f2, #0066cc);
-  color: white;
-  border: none;
-}
-
-.btn-primary:hover {
+.btn-action:hover {
   transform: translateY(-2px);
+  box-shadow: 0 16px 35px rgba(0, 102, 204, 0.55);
 }
 
-/* ================= MOBILE ================= */
+.btn-action:active {
+  transform: scale(0.96);
+}
+
+/* ================= MOBILE TOGGLE ================= */
 .nav-toggle {
   display: none;
   width: 38px;
@@ -226,12 +208,13 @@ header.hidden {
   transform: rotate(-45deg);
 }
 
+/* ================= MOBILE MENU ================= */
 .nav-mobile {
   background: rgba(0, 59, 115, 0.98);
   padding: 1rem 1.4rem;
   display: flex;
   flex-direction: column;
-  gap: 0.7rem;
+  gap: 0.8rem;
 }
 
 .nav-mobile a {
@@ -252,4 +235,9 @@ header.hidden {
     align-items: center;
     justify-content: center;
   }
+}
+
+/* ================= BODY OFFSET ================= */
+body {
+  padding-top: 110px; /* header + top bar height */
 }

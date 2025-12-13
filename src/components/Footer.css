@@ -1,0 +1,285 @@
+/* Footer */
+footer {
+  background: var(--navy);
+  color: rgba(255, 255, 255, 0.92);
+  margin-top: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #00bfff, var(--primary));
+}
+
+.footer-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 1.4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) repeat(2, minmax(0, 1fr));
+  gap: 1.8rem;
+  font-size: 0.85rem;
+}
+
+/* Brand Logo Styling - FIXED SIZE */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin-bottom: 0.75rem;
+}
+
+.brand:hover {
+  transform: translateY(-2px);
+}
+
+.brand-logo {
+  width: 40px; /* Reduced from 50px */
+  height: 40px; /* Reduced from 50px */
+  border-radius: 8px; /* Slightly smaller */
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem; /* Reduced padding */
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.brand-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.brand-text-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem; /* Reduced from 1.4rem */
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  margin-bottom: 0.1rem;
+  color: #fff;
+}
+
+.brand-text-sub {
+  font-size: 0.7rem; /* Slightly smaller */
+  opacity: 0.9;
+  letter-spacing: 0.2px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Footer description text */
+footer p {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 320px;
+  line-height: 1.5;
+  margin-top: 0.5rem;
+}
+
+.footer-heading {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem; /* Slightly smaller */
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: white;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.82rem; /* Slightly smaller */
+  transition: all 0.3s ease;
+  position: relative;
+  padding-left: 0.5rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer-links a::before {
+  content: '→';
+  position: absolute;
+  left: -0.5rem;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: white;
+  padding-left: 1rem;
+}
+
+.footer-links a:hover::before {
+  left: 0;
+  opacity: 1;
+}
+
+.footer-links span {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.82rem; /* Slightly smaller */
+  line-height: 1.4;
+  display: block;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  margin-top: 1.4rem;
+  padding-top: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.78);
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.socials {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.social-pill {
+  width: 30px; /* Reduced from 32px */
+  height: 30px; /* Reduced from 32px */
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem; /* Slightly smaller */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  color: white;
+}
+
+.social-pill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.social-pill:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px) scale(1.1);
+}
+
+.social-pill:hover::before {
+  opacity: 1;
+}
+
+/* Social media specific colors on hover */
+.social-pill:nth-child(1):hover {
+  background: rgba(24, 119, 242, 0.3); /* Facebook blue */
+}
+
+.social-pill:nth-child(2):hover {
+  background: rgba(225, 48, 108, 0.3); /* Instagram pink */
+}
+
+.social-pill:nth-child(3):hover {
+  background: rgba(37, 211, 102, 0.3); /* WhatsApp green */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .footer-inner {
+    padding: 1.5rem 1rem 1rem;
+  }
+  
+  .brand {
+    justify-content: flex-start;
+  }
+  
+  .brand-logo {
+    width: 36px; /* Smaller on mobile */
+    height: 36px; /* Smaller on mobile */
+  }
+  
+  .brand-text-title {
+    font-size: 1.1rem; /* Smaller on mobile */
+  }
+  
+  .brand-text-sub {
+    font-size: 0.65rem; /* Smaller on mobile */
+  }
+  
+  .footer-heading {
+    font-size: 0.88rem;
+  }
+  
+  .footer-links a,
+  .footer-links span {
+    font-size: 0.78rem;
+  }
+  
+  footer p {
+    font-size: 0.82rem;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.8rem;
+  }
+  
+  .socials {
+    justify-content: center;
+  }
+  
+  .social-pill {
+    width: 28px;
+    height: 28px;
+    font-size: 0.75rem;
+  }
+  
+  .footer-grid {
+    gap: 1.2rem;
+  }
+  
+  .brand-logo {
+    width: 32px; /* Even smaller on very small screens */
+    height: 32px; /* Even smaller on very small screens */
+  }
+  
+  .brand-text-title {
+    font-size: 1rem;
+  }
+}

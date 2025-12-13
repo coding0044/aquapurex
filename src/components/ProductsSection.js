@@ -49,10 +49,11 @@ const ProductsSection = () => {
   ];
 
   const productGradients = [
-    "linear-gradient(135deg, #0066cc, #004080)",
-    "linear-gradient(135deg, #00c6ff, #0072ff)",
-    "linear-gradient(135deg, #00b09b, #96c93d)",
-    "linear-gradient(135deg, #ff7e5f, #feb47b)"
+    "linear-gradient(135deg, #005faf, #0066cc)",
+        "linear-gradient(135deg, #005faf, #0066cc)",
+    "linear-gradient(135deg, #005faf, #0066cc)",
+    "linear-gradient(135deg, #005faf, #0066cc)"
+
   ];
 
   const productIcons = ["🏢", "👨‍👩‍👧‍👦", "🚶‍♂️", "🎒"];

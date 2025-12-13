@@ -180,7 +180,7 @@ const Hero = ({ scrollToId }) => {
                 <p className="hero-text" style={{ fontSize: '1.15rem', marginBottom: '1.5rem', color: '#333' }}>
                     AquaPureX delivers clean, great-tasting water for your home and office. We purify every drop with RO + UV and balanced minerals.
                 </p>
-                <div className="hero-badges" style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.5rem' }}>
+                <div className="hero-badges" style={{ display: 'flex', fontStyle:'bold', gap: '1rem', marginBottom: '1.5rem' }}>
                     <div className="badge" style={{ background: '#e0f3ff', padding: '0.5rem 1rem', borderRadius: '20px' }}>100% Bacteria & Virus Free</div>
                     <div className="badge" style={{ background: '#e0f3ff', padding: '0.5rem 1rem', borderRadius: '20px' }}>Premium German Minerals</div>
                     <div className="badge" style={{ background: '#e0f3ff', padding: '0.5rem 1rem', borderRadius: '20px' }}>Free Home Delivery in Lahore</div>

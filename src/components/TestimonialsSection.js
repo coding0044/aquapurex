@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { FaWhatsapp, FaPhoneAlt } from 'react-icons/fa';
+
 import { useInView } from 'react-intersection-observer';
 import './TestimonialsSection.css';
 
@@ -16,7 +18,7 @@ const TestimonialsSection = () => {
   const testimonials = [
     {
       id: 1,
-      quote: "We shifted to AquaPureX and instantly noticed the difference. The taste is clean, and we feel confident giving it to our kids every day.",
+      quote: "AquaPureX gives us clean, safe, and great-tasting water for our kids every day..",
       author: "Ahmed",
       location: "Johar Town",
       since: "2023",
@@ -55,12 +57,12 @@ const TestimonialsSection = () => {
   // Auto-rotate testimonials
   useEffect(() => {
     if (!inView) return;
-    
+
     setIsVisible(true);
     const interval = setInterval(() => {
       setActiveTestimonial(prev => (prev + 1) % testimonials.length);
     }, 5000);
-    
+
     return () => clearInterval(interval);
   }, [inView, testimonials.length]);
 
@@ -83,9 +85,9 @@ const TestimonialsSection = () => {
   const renderAvatar = (author, color) => {
     const initials = author.charAt(0).toUpperCase();
     return (
-      <div 
+      <div
         className="testimonial-avatar"
-        style={{ 
+        style={{
           backgroundColor: color
         }}
       >
@@ -108,22 +110,22 @@ const TestimonialsSection = () => {
       <div className="bg-bubble bubble-1"></div>
       <div className="bg-bubble bubble-2"></div>
       <div className="bg-bubble bubble-3"></div>
-      
+
       <div className={`testimonials-inner split ${inView ? 'visible' : ''}`}>
         <div className="testimonials-content">
           <div className="section-kicker">Customer Stories</div>
           <h2 className="section-title">
-            Trusted by 
-            <span className="highlight-text"> Hundreds of Families</span> 
+            Trusted by
+            <span className="highlight-text"> Hundreds of Families</span>
             Across Lahore
           </h2>
-          
+
           {/* Stats Row */}
-          
+
 
           {/* Testimonials Carousel */}
           <div className="testimonials-carousel" ref={testimonialsRef}>
-            <div 
+            <div
               className={`testimonial-card ${isVisible ? 'active' : ''}`}
               key={activeTestimonial}
             >
@@ -139,7 +141,7 @@ const TestimonialsSection = () => {
               </div>
               <div className="testimonial-meta">Customer since {testimonials[activeTestimonial].since}</div>
             </div>
-            
+
             {/* Carousel Dots */}
             <div className="carousel-dots">
               {testimonials.map((_, index) => (
@@ -151,16 +153,16 @@ const TestimonialsSection = () => {
                 />
               ))}
             </div>
-            
+
             {/* Next/Prev buttons */}
             <div className="carousel-nav">
-              <button 
+              <button
                 className="carousel-btn prev"
                 onClick={goToPrev}
               >
                 ←
               </button>
-              <button 
+              <button
                 className="carousel-btn next"
                 onClick={goToNext}
               >
@@ -172,7 +174,7 @@ const TestimonialsSection = () => {
 
         {/* Enhanced CTA Panel */}
         <div className="cta-panel-wrapper">
-          <div 
+          <div
             className={`cta-panel ${isHoveringCTA ? 'hover' : ''}`}
             onMouseEnter={() => setIsHoveringCTA(true)}
             onMouseLeave={() => setIsHoveringCTA(false)}
@@ -181,12 +183,12 @@ const TestimonialsSection = () => {
             <div className="floating-water-drop"></div>
             <div className="floating-water-drop drop-2"></div>
             <div className="floating-water-drop drop-3"></div>
-            
-            
+
+
             <div className="cta-title">
               Ready for <span className="cta-highlight">Pure, Safe</span> Drinking Water?
             </div>
-            
+
             <div className="cta-text">
               <div className="cta-feature">
                 <span className="feature-icon">🚚</span>
@@ -204,28 +206,34 @@ const TestimonialsSection = () => {
 
             {/* Animated Button Container */}
             <div className="cta-buttons">
-              <button 
-                className="btn btn-whatsapp" 
+              <button
+                className="btn btn-whatsapp"
                 onClick={openWhatsApp}
-              >
+                style={{
+                  background: '#7dd3fc59',
+                }}  >
                 <span className="btn-icon">
                   <div className="whatsapp-pulse"></div>
-                  💬
+                  <FaWhatsapp size={24} /> {/* Icon replaces 💬 */}
                 </span>
+
                 <span className="btn-text">
                   <span className="btn-main">Order on WhatsApp</span>
                   <span className="btn-sub">Instant Response</span>
                 </span>
               </button>
-              
-              <button 
-                className="btn btn-call" 
+
+              <button
+                className="btn btn-call"
                 onClick={callNow}
-              >
+                style={{
+                  background: '#7dd3fc59',
+                }}   >
                 <span className="btn-icon">
                   <div className="call-ring"></div>
-                  📞
+                  <FaPhoneAlt size={24} /> {/* Icon replaces 📞 */}
                 </span>
+
                 <span className="btn-text">
                   <span className="btn-main">Call Now</span>
                   <span className="btn-sub">Direct Support</span>
@@ -234,18 +242,16 @@ const TestimonialsSection = () => {
             </div>
 
             {/* Timer/Offer Section */}
-            
+
 
             <div className="cta-contact">
               <div className="contact-phone">
-                <span className="phone-icon">📞</span>
+                <span className="phone-icon"><FaPhoneAlt size={24} /></span>
                 <span className="phone-number">0302-0758141</span>
                 <span className="phone-separator">·</span>
                 <span className="phone-number">0371-1724801</span>
               </div>
-              <div className="contact-note">
-                Call us now for a <span className="highlight">free trial bottle!</span>
-              </div>
+
             </div>
           </div>
         </div>

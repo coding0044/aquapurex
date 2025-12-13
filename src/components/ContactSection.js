@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import './ContactSection.css';
 import { useInView } from 'react-intersection-observer';
 
 const ContactSection = () => {
@@ -70,8 +71,10 @@ const ContactSection = () => {
               <p className="card-text"><strong>Address:</strong> Ali Town, Main Boulevard, Johar Town, Lahore</p>
               <p className="card-text"><strong>Hours:</strong> 9:00 AM – 10:00 PM, 7 days a week</p>
               
-              <div style={{marginTop: '1rem', display: 'flex', gap: '0.5rem'}}>
-                <button className="btn btn-primary btn-3d" onClick={callNow}>
+              <div style={{marginTop: '1rem', display: 'flex', gap: '0.5rem', color: 'white'}}>
+                <button className="btn btn-primary btn-3d" onClick={callNow} style={{
+                  color:'white',
+                }}>
                   Call Now
                 </button>
                 <button className="btn btn-outline btn-3d" onClick={openWhatsApp}>

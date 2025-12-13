@@ -59,16 +59,7 @@ function App() {
     <div className="page-wrapper">
       <WaterDrops />
       <WaveAnimation />
-   <div class="top-bar">
-  <span class="left-text">Free Home Delivery in Lahore</span>
 
-  <div class="top-bar-phones" style={{
-    fontSize:'15px',
-  }}>
-    <span>Call: 0302-0758141 · 0371-1724801</span>
-    <span class="pill">WhatsApp Orders Available</span>
-  </div>
-</div>
 
 
       <Header scrollToId={scrollToId} hidden={headerHidden} />

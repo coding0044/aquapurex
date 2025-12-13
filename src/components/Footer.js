@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import './Footer.css';
 
 const Footer = ({ scrollToId }) => {
   useEffect(() => {
@@ -28,7 +29,7 @@ const Footer = ({ scrollToId }) => {
           <div>
             <div className="brand" style={{marginBottom: '0.75rem'}} onClick={() => scrollToId('hero')}>
               <div className="brand-logo">
-                <img src="images/aquapurex-logo-white.png" alt="AquaPureX logo" />
+                <img src="images/360/bottle-360/LogoDesign.png" alt="AquaPureX logo" />
               </div>
               <div>
                 <div className="brand-text-title" style={{color: '#fff'}}>AquaPureX</div>
