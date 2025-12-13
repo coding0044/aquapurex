@@ -52,21 +52,7 @@ const Header = ({ scrollToId }) => {
   return (
     
     <header className={hidden ? 'hidden' : ''}>
-         <div class="top-bar">
-  <span class="left-text" style={{
-        fontSize:'17px',
 
-  }}>Free Home Delivery in Lahore</span>
-
-  <div class="top-bar-phones" style={{
-    fontSize:'17px',
-  }}>
-    <span  style={{
-    marginRight:'28px',
-  }}>Call: 0302-0758141 · 0371-1724801</span>
-    <span class="pill" >WhatsApp Orders Available</span>
-  </div>
-</div>
       <nav className="nav">
 
         {/* BRAND */}

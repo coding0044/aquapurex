@@ -20,7 +20,7 @@ const ProductsSection = () => {
       size: "For dispensers, families & workplaces",
       description: "Our signature large-format bottle, ideal for water dispensers in homes, offices, clinics, and shops.",
       tag: "Most Popular",
-      image: "images/aquapurex-19L-thumb.png"
+      // image: "images/aquapurex-19L-thumb.png"
     },
     {
       id: 2,
@@ -28,7 +28,7 @@ const ProductsSection = () => {
       size: "Perfect for dining tables",
       description: "Great for family meals, mini gatherings, and everyday hydration at home.",
       tag: "Family Favourite",
-      image: "images/aquapurex-1_5L-thumb.png"
+      // image: "images/aquapurex-1_5L-thumb.png"
     },
     {
       id: 3,
@@ -36,7 +36,7 @@ const ProductsSection = () => {
       size: "Work, gym & travel",
       description: "Stay hydrated wherever you are — keep AquaPureX in your bag, car, or at your desk.",
       tag: "Grab & Go",
-      image: "images/aquapurex-500ml-thumb.png"
+      // image: "images/aquapurex-500ml-thumb.png"
     },
     {
       id: 4,
@@ -44,7 +44,7 @@ const ProductsSection = () => {
       size: "School & tiffin-friendly",
       description: "A child-friendly serving size that fits easily into lunch boxes and school bags.",
       tag: "Kids Safe",
-      image: "images/aquapurex-250ml-thumb.png"
+      // image: "images/aquapurex-250ml-thumb.png"
     }
   ];
 
@@ -107,11 +107,11 @@ const ProductsSection = () => {
             >
               <div className="product-card-content">
                 <div className="product-image-container">
-                  <img 
+                  {/* <img 
                     src={product.image} 
                     alt={product.title} 
                     className="product-image"
-                  />
+                  /> */}
                   <span className="product-icon">{productIcons[index]}</span>
                 </div>
                 <div className="product-title">{product.title}</div>
