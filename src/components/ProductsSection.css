@@ -75,7 +75,7 @@
 
 .product-tag {
   display: inline-block;
-  background: #00aaff;
+  background: linear-gradient(135deg, #00aaff, #003b73);
   color: #fff;
   font-size: 0.75rem;
   padding: 0.35rem 0.8rem;
