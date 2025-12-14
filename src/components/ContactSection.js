@@ -67,7 +67,7 @@ const ContactSection = () => {
           <div>
             <div className="card" style={{marginBottom: '1rem'}}>
               <h3 className="card-title">Contact Details</h3>
-              <p className="card-text"><strong>Phone:</strong> 0302-0758141 · 0371-1724801</p>
+              <p className="card-text"><strong>Phone:</strong> 0371-1724801</p>
               <p className="card-text"><strong>Address:</strong> Ali Town, Main Boulevard, Johar Town, Lahore</p>
               <p className="card-text"><strong>Hours:</strong> 9:00 AM – 10:00 PM, 7 days a week</p>
               
