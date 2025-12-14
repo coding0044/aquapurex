@@ -23,7 +23,7 @@ const FloatingWhatsApp = () => {
   }, []);
 
   const openWhatsApp = () => {
-    const phone = '923021724801';
+    const phone = '923711724801';
     const msg = encodeURIComponent('Salam AquaPureX, I would like to place a water order.');
     window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
   };

@@ -48,7 +48,7 @@ const ContactSection = () => {
 
   // Direct phone call
   const callNow = () => {
-    window.location.href = 'tel:++923711724801';
+    window.location.href = 'tel:+923711724801';
   };
 
   return (

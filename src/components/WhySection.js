@@ -133,10 +133,7 @@ const WhySection = () => {
         <div className="section-header">
           <div className="section-kicker">
             <span className="kicker-badge">Why AquaPureX</span>
-            <div className="trust-badge">
-              <span className="trust-star">★</span>
-              Trusted by 5000+ Families
-            </div>
+            
           </div>
           <h2 className="section-title">
             <span className="title-highlight">Engineered</span> for Purity,
