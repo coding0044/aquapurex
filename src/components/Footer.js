@@ -58,7 +58,7 @@ const Footer = ({ scrollToId }) => {
           <div>
             <div className="footer-heading">Contact</div>
             <div className="footer-links">
-              <span>Phone: 0302-0758141 · 0371-1724801</span>
+              <span>Phone: 0371-1724801</span>
               <span>Ali Town, Main Boulevard, Johar Town, Lahore</span>
               <span>Hours: 9:00 AM – 10:00 PM</span>
             </div>
