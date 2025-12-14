@@ -101,7 +101,7 @@ const ProcessSection = () => {
 
               <h3 className="step-title">{step.title}</h3>
               <p className="step-text" style={{
-                    textAlign: 'center',
+                    textAlign: 'left',
               }}>{step.text}</p>
 
               <div className="card-hover-indicator"></div>
