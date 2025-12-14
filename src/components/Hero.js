@@ -30,9 +30,7 @@ const Hero = ({ scrollToId }) => {
             Order Now on WhatsApp
           </button>
           
-          <button className="ctaOutline" onClick={() => scrollToId('process')} style={{
-                width: '218px',
-          }}>
+          <button className="ctaOutline" onClick={() => scrollToId('process')}>
             See How We Purify
           </button>
         </div>
