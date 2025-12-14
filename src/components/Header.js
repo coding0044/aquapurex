@@ -44,17 +44,42 @@ const Header = ({ scrollToId }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
+  // WhatsApp Order Function
+  const openWhatsAppOrder = () => {
+    const phone = '923021724801';
+    const msg = encodeURIComponent('Salam AquaPureX, I would like to place a water order.');
+    window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+  };
+
+  // Direct Call Function
+  const makePhoneCall = () => {
+    window.open('tel:+923021724801');
+  };
+
   const handleNavClick = (id) => {
     scrollToId(id);
     setIsMobileMenuOpen(false);
   };
 
+  // Handle Order Online click - opens WhatsApp directly
+  const handleOrderOnlineClick = (e) => {
+    e.preventDefault();
+    openWhatsAppOrder();
+    // Optional: Close mobile menu if open
+    setIsMobileMenuOpen(false);
+  };
+
+  // Handle Call Us click - makes phone call directly
+  const handleCallUsClick = (e) => {
+    e.preventDefault();
+    makePhoneCall();
+    // Optional: Close mobile menu if open
+    setIsMobileMenuOpen(false);
+  };
+
   return (
-    
     <header className={hidden ? 'hidden' : ''}>
-
       <nav className="nav">
-
         {/* BRAND */}
         <div className="brand" onClick={() => handleNavClick('hero')}>
           <img
@@ -90,22 +115,26 @@ const Header = ({ scrollToId }) => {
         </div>
 
         {/* CTA */}
-        <div className="nav-cta" >
+        <div className="nav-cta">
+          {/* Call Us Button - Direct Phone Call */}
           <button
-            className="btn-action"
-            onClick={() => handleNavClick('contact')}
-          style={{
-          background:'rgb(0, 95, 175)',
-        }}>
+            className="btn-action call-btn"
+            onClick={handleCallUsClick}
+            style={{
+              background: 'rgb(0, 95, 175)',
+            }}
+          >
             Call Us
           </button>
 
+          {/* Order Online Button - Direct WhatsApp */}
           <button
-            className="btn-action"
-            onClick={() => handleNavClick('order')}
-          style={{
-          background:'rgb(0, 95, 175)',
-        }}>
+            className="btn-action order-btn"
+            onClick={handleOrderOnlineClick}
+            style={{
+              background: 'rgb(0, 95, 175)',
+            }}
+          >
             Order Online
           </button>
         </div>
@@ -122,7 +151,7 @@ const Header = ({ scrollToId }) => {
       {/* MOBILE MENU */}
       {isMobileMenuOpen && (
         <div className="nav-mobile">
-          {['hero', 'why AquaPureX', 'products', 'process',  'contact'].map(
+          {['hero', 'why AquaPureX', 'products', 'process', 'contact'].map(
             (item) => (
               <a key={item} onClick={() => handleNavClick(item)}>
                 {item === 'hero'
@@ -131,6 +160,21 @@ const Header = ({ scrollToId }) => {
               </a>
             )
           )}
+          {/* Mobile CTA Buttons */}
+          <div className="mobile-cta-buttons">
+            <button
+              className="btn-action call-btn"
+              onClick={handleCallUsClick}
+            >
+               Call Us
+            </button>
+            <button
+              className="btn-action order-btn"
+              onClick={handleOrderOnlineClick}
+            >
+               Order Online
+            </button>
+          </div>
         </div>
       )}
     </header>

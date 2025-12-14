@@ -22,8 +22,22 @@ const ProductsSection = () => {
       tag: "Most Popular",
       image: "images/360/bottle-360/aquapurex-19L-thumb.png",
     },
-    // Add more products here
+    // Add more products here if needed
   ];
+
+  // WhatsApp Order Function
+  const openWhatsAppOrder = (productName = '') => {
+    const phone = '923021724801';
+    const defaultMsg = `Salam AquaPureX, I would like to place an order for ${productName || 'your water product'}.`;
+    const msg = encodeURIComponent(defaultMsg);
+    window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+  };
+
+  // Handle Order Now click with product info
+  const handleOrderClick = () => {
+    const selectedProductName = products[selectedProduct].title;
+    openWhatsAppOrder(selectedProductName);
+  };
 
   const handleProductClick = (index) => {
     if (isAnimating || selectedProduct === index) return;
@@ -43,7 +57,7 @@ const ProductsSection = () => {
   return (
     <section id="products" className="products-section">
       <div className="section-kicker">Our Premium Products</div>
-<br />
+      <br />
       <div className="products-inner">
         {/* LEFT COLUMN - PRODUCT SUMMARY */}
         <div className="product-column">
@@ -57,7 +71,9 @@ const ProductsSection = () => {
                 />
               </div>
               <div className="product-text">
-                <h3 className="product-title">{products[selectedProduct].title}</h3>
+                <h3 className="product-title" style={{
+                  marginLeft:'55px'
+                }}>{products[selectedProduct].title}</h3>
                 <div className="product-size">{products[selectedProduct].size}</div>
                 <span className="product-tag">{products[selectedProduct].tag}</span>
               </div>
@@ -66,8 +82,11 @@ const ProductsSection = () => {
             <p className="product-description">{products[selectedProduct].description}</p>
 
             <div className="product-actions">
-              <button className="btn btn-primary pulse-animation">
-                <span className="btn-icon">💧</span> Order Now
+              <button 
+                className="btn btn-primary pulse-animation"
+                onClick={handleOrderClick}
+              >
+                <span className="btn-icon">💧</span> Order Now on WhatsApp
               </button>
             </div>
           </div>

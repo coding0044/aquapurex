@@ -109,9 +109,7 @@ const ProcessSection = () => {
           ))}
         </div>
       </div>
-      <br />
-            <br />
-      <br />
+ 
 
     </section>
   );

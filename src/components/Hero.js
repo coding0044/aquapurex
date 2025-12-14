@@ -2,6 +2,13 @@ import React from 'react';
 import './Hero.css';
 
 const Hero = ({ scrollToId }) => {
+  
+  const openWhatsApp = () => {
+    const phone = '923021724801';
+    const msg = encodeURIComponent('Salam AquaPureX, I would like to place a water order.');
+    window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+  };
+
   return (
     <section id="hero" className="hero">
       {/* LEFT CONTENT */}
@@ -18,10 +25,14 @@ const Hero = ({ scrollToId }) => {
         </p>
 
         <div className="heroCta">
-          <button className="ctaPrimary" onClick={() => scrollToId('order')}>
-            Order Now
+          {/* Direct WhatsApp Order */}
+          <button className="ctaPrimary" onClick={openWhatsApp}>
+            Order Now on WhatsApp
           </button>
-          <button className="ctaOutline" onClick={() => scrollToId('process')}>
+          
+          <button className="ctaOutline" onClick={() => scrollToId('process')} style={{
+                width: '218px',
+          }}>
             See How We Purify
           </button>
         </div>

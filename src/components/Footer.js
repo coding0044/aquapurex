@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import './Footer.css';
+import { FaFacebookF, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 
 const Footer = ({ scrollToId }) => {
   useEffect(() => {
-    // Update year automatically
     const yearElement = document.getElementById('currentYear');
     if (yearElement) {
       yearElement.textContent = new Date().getFullYear();
@@ -16,37 +16,33 @@ const Footer = ({ scrollToId }) => {
       instagram: 'https://instagram.com/aquapurex',
       whatsapp: 'https://wa.me/923021724801'
     };
-    
     if (urls[platform]) {
       window.open(urls[platform], '_blank');
     }
   };
 
   return (
-    <footer>
+    <footer className="footer">
       <div className="footer-inner">
         <div className="footer-grid">
+
+          {/* BRAND / ABOUT */}
           <div>
-            <div className="brand" style={{marginBottom: '0.75rem'}} onClick={() => scrollToId('hero')}>
-              <div className="brand-logo" style={{
-                    width: '70px',
-    height: '70px',
-    borderRadius: '4px'
-              }}>
+            <div className="brand" onClick={() => scrollToId('hero')}>
+              <div className="brand-logo">
                 <img src="images/360/bottle-360/LogoDesign.png" alt="AquaPureX logo" />
               </div>
               <div>
-                <div className="brand-text-title" style={{color: '#fff'}}>AquaPureX</div>
-                <div className="brand-text-sub" style={{color: 'rgba(255,255,255,0.8)'}}>
-                  Pure Water – Advanced Technology
-                </div>
+                <div className="brand-text-title">AquaPureX</div>
+                <div className="brand-text-sub">Pure Water – Advanced Technology</div>
               </div>
             </div>
-            <p style={{fontSize: '0.85rem', color: 'rgba(255,255,255,0.82)', maxWidth: '320px'}}>
+            <p>
               AquaPureX delivers premium, lab-tested drinking water with advanced RO + UV purification and balanced minerals, trusted by families across Lahore.
             </p>
           </div>
 
+          {/* QUICK LINKS */}
           <div>
             <div className="footer-heading">Quick Links</div>
             <div className="footer-links">
@@ -58,6 +54,7 @@ const Footer = ({ scrollToId }) => {
             </div>
           </div>
 
+          {/* CONTACT */}
           <div>
             <div className="footer-heading">Contact</div>
             <div className="footer-links">
@@ -68,29 +65,18 @@ const Footer = ({ scrollToId }) => {
           </div>
         </div>
 
+        {/* FOOTER BOTTOM */}
         <div className="footer-bottom">
           <span>© <span id="currentYear"></span> AquaPureX. All rights reserved.</span>
           <div className="socials">
-            <div 
-              className="social-pill" 
-              title="Facebook"
-              onClick={() => handleSocialClick('facebook')}
-            >
-              f
+            <div className="social-pill facebook" title="Facebook" onClick={() => handleSocialClick('facebook')}>
+              <FaFacebookF size={18} />
             </div>
-            <div 
-              className="social-pill" 
-              title="Instagram"
-              onClick={() => handleSocialClick('instagram')}
-            >
-              ◎
+            <div className="social-pill instagram" title="Instagram" onClick={() => handleSocialClick('instagram')}>
+              <FaInstagram size={18} />
             </div>
-            <div 
-              className="social-pill" 
-              title="WhatsApp"
-              onClick={() => handleSocialClick('whatsapp')}
-            >
-              ☏
+            <div className="social-pill whatsapp" title="WhatsApp" onClick={() => handleSocialClick('whatsapp')}>
+              <FaWhatsapp size={18} />
             </div>
           </div>
         </div>
