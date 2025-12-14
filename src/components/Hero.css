@@ -206,6 +206,7 @@
   .bottle-right img {
     max-width: 420px;
   }
+
   .hero {
     gap: 5rem;
   }
@@ -213,21 +214,22 @@
 
 @media (max-width: 767px) {
   .hero {
-        padding: 0.5rem 2.25rem 5rem;
-        gap: 25px;  }
-  
+    padding: 0.5rem 2.25rem 5rem;
+    gap: 25px;
+  }
+
   .bottle-right {
     padding: 10px;
   }
-  
+
   .bottle-right img {
     max-width: 280px;
   }
-  
+
   .heroCta {
     gap: 0.75rem;
   }
-  
+
   .ctaPrimary,
   .ctaOutline {
     padding: 0.8rem 1.5rem;
@@ -241,21 +243,21 @@
   .hero-title {
     font-size: 2rem;
   }
-  
+
   .hero-text {
     font-size: 1rem;
   }
-  
+
   .bottle-right img {
     max-width: 245px;
   }
-  
+
   .heroCta {
-   flex-direction: column;
-        width: 243px;
-        margin-left: 53px;
+    flex-direction: column;
+    width: 243px;
+    margin-left: 53px;
   }
-  
+
   .ctaPrimary,
   .ctaOutline {
     width: 100%;
@@ -271,12 +273,13 @@
 
 /* REDUCED MOTION PREFERENCE */
 @media (prefers-reduced-motion: reduce) {
+
   .bottle-right,
   .ctaPrimary,
   .ctaOutline {
     transition: none;
   }
-  
+
   .bottle-right:hover,
   .ctaPrimary:hover,
   .ctaOutline:hover {
@@ -289,11 +292,11 @@
   .bottle-right {
     background: rgba(255, 255, 255, 0.08);
   }
-  
+
   .hero-title {
     color: #f0f0f0;
   }
-  
+
   .hero-text {
     color: rgba(255, 255, 255, 0.8);
   }
