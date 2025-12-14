@@ -12,8 +12,8 @@ const Footer = ({ scrollToId }) => {
 
   const handleSocialClick = (platform) => {
     const urls = {
-      facebook: 'https://facebook.com/aquapurex',
-      instagram: 'https://instagram.com/aquapurex',
+      facebook: '',
+      instagram: '',
       whatsapp: 'https://wa.me/+923711724801'
     };
     if (urls[platform]) {
