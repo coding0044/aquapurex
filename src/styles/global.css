@@ -54,122 +54,8 @@ a {
 
 
 
-/* Hero */
-.hero {
-      max-width: 1207px;
-    margin: 1rem auto 0;
-    padding: 2.5rem 1.25rem 7.5rem;
-    display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-    gap: 2.7rem;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    margin-left: 84px;
-}
 
 
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(0,191,255,0.05) 0%, transparent 70%);
-  animation: rotate 20s linear infinite;
-  z-index: -1;
-}
-
-.eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 0.78rem;
-  color: var(--primary);
-  font-weight: 600;
-  margin-bottom: 0.4rem;
-  opacity: 0;
-  animation: fadeInUp 0.8s ease forwards 0.2s;
-}
-
-.hero-title {
-  font-family: 'Poppins', sans-serif;
-  font-size: clamp(3.3rem, 4vw, 2.9rem);
-  line-height: 1.08;
-  color: var(--navy);
-  margin-bottom: 0.8rem;
-  opacity: 0;
-  animation: fadeInUp 0.8s ease forwards 0.4s;
-}
-
-
-
- .hero-highlight {
-      background: linear-gradient(120deg, #00bfff, var(--primary));
-      -webkit-background-clip: text;
-      color: transparent;
-      font-weight: 700;
-    }
-
-
-
-
-.hero-text {
-    font-size: 21px;
-  color: var(--text-muted);
-  max-width: 480px;
-  margin-bottom: 1.2rem;
-  opacity: 0;
-  animation: fadeInUp 0.8s ease forwards 0.6s;
-}
-
-.hero-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-bottom: 1.4rem;
-  opacity: 0;
-  animation: fadeInUp 0.8s ease forwards 0.8s;
-      font-family: monospace;
-
-}
-
-.badge {
-  font-size: 0.78rem;
-  padding: 0.25rem 0.7rem;
-  border-radius: 999px;
-  border: 1px solid rgba(0,95,175,0.25);
-  background: rgba(224,243,255,0.8);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  color: var(--navy);
-  transition: all var(--transition-fast);
-  cursor: pointer;
-}
-
-.badge:hover {
-  box-shadow: 0 4px 10px rgba(0,95,175,0.18);
-  transform: translateY(-1px);
-}
-
-.badge-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #00bfff, var(--primary));
-  animation: pulse 2s infinite;
-}
-
-.heroCta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  opacity: 0;
-  animation: fadeInUp 0.8s ease forwards 1s;
-}
 
 /* Base Button */
 .ctaBtn {
@@ -228,28 +114,6 @@ a {
 }
 
 
-.hero-note {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  opacity: 0;
-  animation: fadeInUp 0.8s ease forwards 1.2s;
-}
-
-.hero-rating {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  margin-top: 0.4rem;
-  opacity: 0;
-  animation: fadeInUp 0.8s ease forwards 1.4s;
-}
-
-.stars {
-  color: #f7b500;
-  font-size: 0.9rem;
-}
 
 
 
@@ -287,22 +151,6 @@ a {
   animation: bubbleRise linear infinite;
 }
 
-.hero-right {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-
-
-
-.hero-spec-btn {
-  width: 100%;
-  justify-content: center;
-  font-size: 0.78rem;
-}
 
 
 
@@ -437,6 +285,8 @@ a {
   padding: 0.1rem 0.5rem;
   background: rgba(0,95,175,0.1);
   border-radius: 999px;
+      margin-right: 2px;
+
 }
 
 .step-title {
@@ -772,22 +622,14 @@ a {
 }
 
 @media (max-width: 960px) {
-  .hero {
-    grid-template-columns: minmax(0,1fr);
-  }
 
-  .hero-right {
-    order: -1;
-  }
 
   .why-grid,
   .split {
     grid-template-columns: minmax(0,1fr);
   }
 
-  .hero-bottle-wrap {
-    grid-template-columns: minmax(0,1fr);
-  }
+
 }
 
 @media (max-width: 780px) {
@@ -808,15 +650,11 @@ a {
     padding-inline: 1rem;
   }
 
-  .hero {
-    padding-inline: 1rem;
-  }
+
 }
 
 @media (max-width: 520px) {
-  .hero-title {
-    font-size: 2rem;
-  }
+
 
   .footer-grid {
     grid-template-columns: minmax(0,1fr);
