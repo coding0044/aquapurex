@@ -27,7 +27,7 @@ const ProductsSection = () => {
 
   // WhatsApp Order Function
   const openWhatsAppOrder = (productName = '') => {
-    const phone = '923021724801';
+    const phone = '+923711724801';
     const defaultMsg = `Salam AquaPureX, I would like to place an order for ${productName || 'your water product'}.`;
     const msg = encodeURIComponent(defaultMsg);
     window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
