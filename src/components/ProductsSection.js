@@ -98,13 +98,13 @@ const ProductsSection = () => {
             className={`header-content ${inView ? 'visible' : ''}`}
             ref={ref}
           >
-            <h2 className="header-title">
-              Pure Hydration <br /> Solutions
+                  <h2 className="header-title">
+              Pure Hydration <br /> Solution
             </h2>
             <p className="header-subtitle">
-              Whether it's for home, office, travel, or school, AquaPureX has a bottle size tailored
-              to your daily routine — from compact bottles for on-the-go hydration to larger sizes
-              for family and office use.
+           AquaPureX combines advanced purification technology with carefully balanced minerals to give you water that is not only safe, but refreshing in every sip.
+
+
             </p>
 
             {/* PRODUCT SELECTOR DOTS */}

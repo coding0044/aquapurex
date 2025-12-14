@@ -249,8 +249,6 @@ const TestimonialsSection = () => {
             <div className="cta-contact">
               <div className="contact-phone">
                 <span className="phone-icon"><FaPhoneAlt size={24} /></span>
-                <span className="phone-number">0302-0758141</span>
-                <span className="phone-separator">·</span>
                 <span className="phone-number">0371-1724801</span>
               </div>
 
