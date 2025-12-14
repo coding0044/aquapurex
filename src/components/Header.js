@@ -71,14 +71,14 @@ const Header = ({ scrollToId }) => {
 
   // WhatsApp Order Function
   const openWhatsAppOrder = () => {
-    const phone = '923021724801';
+    const phone = '93711724801';
     const msg = encodeURIComponent('Salam AquaPureX, I would like to place a water order.');
     window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
   };
 
   // Direct Call Function
   const makePhoneCall = () => {
-    window.open('tel:+923021724801');
+    window.open('tel:+93711724801');
   };
 
   const handleNavClick = (id) => {
