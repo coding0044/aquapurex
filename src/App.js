@@ -58,7 +58,6 @@ function App() {
   return (
     <div className="page-wrapper">
       <WaterDrops />
-      <WaveAnimation />
 
 
 
@@ -67,7 +66,8 @@ function App() {
       <main>
 
         <Hero scrollToId={scrollToId} />
-
+      <WaveAnimation />
+<br />
         <WhySection />
         <ProductsSection />
         <ProcessSection />
