@@ -3,7 +3,7 @@ import './Hero.css';
 
 const Hero = ({ scrollToId }) => {
   const openWhatsApp = () => {
-    const phone = '923021724801';
+    const phone = '+923711724801';
     const msg = encodeURIComponent(
       'Salam AquaPureX, I would like to place a water order.'
     );

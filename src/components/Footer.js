@@ -14,7 +14,7 @@ const Footer = ({ scrollToId }) => {
     const urls = {
       facebook: 'https://facebook.com/aquapurex',
       instagram: 'https://instagram.com/aquapurex',
-      whatsapp: 'https://wa.me/923021724801'
+      whatsapp: 'https://wa.me/+923711724801'
     };
     if (urls[platform]) {
       window.open(urls[platform], '_blank');

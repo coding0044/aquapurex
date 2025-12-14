@@ -30,7 +30,7 @@ const ContactSection = () => {
     if (!name || !phone || !message) return;
 
     const text = `Salam AquaPureX, I have a quick inquiry.\n\nName: ${name}\nPhone: ${phone}\nMessage: ${message}`;
-    const url = `https://wa.me/923021724801?text=${encodeURIComponent(text)}`;
+    const url = `https://wa.me/+923711724801?text=${encodeURIComponent(text)}`;
 
     window.open(url, '_blank');
 
@@ -41,14 +41,14 @@ const ContactSection = () => {
   // Direct WhatsApp contact
   const openWhatsApp = () => {
     
-    const phone = '923021724801';
+    const phone = '+923711724801';
     const msg = encodeURIComponent('Salam AquaPureX, I need help with an inquiry.');
     window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
   };
 
   // Direct phone call
   const callNow = () => {
-    window.location.href = 'tel:+923021724801';
+    window.location.href = 'tel:++923711724801';
   };
 
   return (
