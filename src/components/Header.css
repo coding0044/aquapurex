@@ -1,6 +1,30 @@
+/* ================= CSS VARIABLES ================= */
 :root {
   --navy: #003b73;
   --primary: #1386fa;
+  --light-blue: #cfe7ff;
+  --white: #ffffff;
+  --gradient-blue: linear-gradient(135deg, #1da1f2, #0066cc);
+  --shadow: 0 10px 28px rgba(0, 102, 204, 0.45);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ================= RESET & BASE ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  padding-top: 80px; /* Header height compensation */
+  margin: 0;
+  background-color: #f8fbff;
 }
 
 /* ================= HEADER ================= */
@@ -10,73 +34,30 @@ header {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(0, 59, 115, 0.95);
-  backdrop-filter: blur(14px);
-  transition: transform 0.35s ease;
+  background: rgba(0, 59, 115, 0.98);
+  backdrop-filter: blur(14px) saturate(180%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  touch-action: pan-y;
 }
 
-/* Hide on scroll down */
+/* Hide header when scrolling down */
 header.hidden {
   transform: translateY(-100%);
-}
-
-/* ================= TOP BAR ================= */
-.top-bar {
-  background: linear-gradient(90deg, #0b4e8a, #0d63b8);
-  color: #eaf4ff;
-  font-size: 0.8rem;
-  padding: 0.35rem 1.4rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* Pill style */
-.pill {
-  padding: 0.18rem 0.8rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  display: inline-block;
-  cursor: pointer;
-
-  /* Animation */
-  animation: pulse 2s infinite;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Hover effect for better interaction */
-.pill:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.35);
-}
-
-/* Pulse keyframes */
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 0 rgba(255, 255, 255, 0.3);
-  }
-  50% {
-    transform: scale(1.08);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 rgba(255, 255, 255, 0.3);
-  }
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ================= NAV ================= */
 .nav {
   max-width: 1650px;
-  margin: auto;
+  margin: 0 auto;
   padding: 0.8rem 1.4rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  touch-action: pan-y;
 }
 
 /* ================= BRAND ================= */
@@ -85,35 +66,55 @@ header.hidden {
   align-items: center;
   gap: 0.7rem;
   cursor: pointer;
+  transition: var(--transition);
+  padding: 4px 8px;
+  border-radius: 8px;
+  user-select: none;
+}
+
+.brand:hover {
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .brand-logo {
   height: 50px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 .brand-text-title {
   color: white;
-  font-weight: 600;
-  font-size: 1.1rem;
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .brand-text-sub {
   font-size: 0.75rem;
   color: #cfe7ff;
+  letter-spacing: 0.3px;
+  margin-top: 2px;
 }
 
-/* ================= LINKS ================= */
+/* ================= DESKTOP NAV LINKS ================= */
 .nav-links {
   display: flex;
-  gap: 1.4rem;
+  gap: 2rem;
+  align-items: center;
 }
 
 .nav-links a {
   color: #e5f1ff;
   font-size: 0.92rem;
+  font-weight: 500;
+  text-decoration: none;
   position: relative;
-  padding-bottom: 4px;
-  transition: color 0.3s ease;
+  padding: 8px 0;
+  transition: var(--transition);
+  letter-spacing: 0.3px;
+  cursor: pointer;
 }
 
 .nav-links a::after {
@@ -122,59 +123,132 @@ header.hidden {
   left: 0;
   bottom: 0;
   width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #6dd5ff, white);
-  transition: width 0.3s ease;
+  height: 3px;
+  background: linear-gradient(90deg, #6dd5ff, var(--white));
+  border-radius: 2px;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.nav-links a:hover::after,
-.nav-links a.active::after {
+.nav-links a:hover {
+  color: var(--white);
+  transform: translateY(-1px);
+}
+
+.nav-links a:hover::after {
   width: 100%;
 }
 
 .nav-links a.active {
-  color: white;
+  color: var(--white);
   font-weight: 600;
 }
 
-/* ================= CTA ================= */
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* ================= DESKTOP CTA BUTTONS ================= */
+
+
+/* ================= DESKTOP CTA BUTTONS ================= */
 .nav-cta {
   display: flex;
   gap: 0.8rem;
+  align-items: center;
 }
 
-/* SAME BUTTON STYLE */
 .btn-action {
   padding: 0.6rem 1.3rem;
   border-radius: 999px;
-  font-size: 0.8rem;
-  font-weight: 700;
+  font-size: 0.85rem;
+  font-weight: 600;
   border: none;
   cursor: pointer;
-  background: linear-gradient(135deg, #1da1f2, #0066cc);
   color: white;
-  box-shadow: 0 10px 28px rgba(0, 102, 204, 0.45);
-  transition: all 0.25s ease;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.3px;
+  position: relative;
+  overflow: hidden;
+  min-width: 120px;
+  justify-content: center;
+}
+
+.btn-action::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s;
+}
+
+.btn-action:hover::before {
+  left: 100%;
 }
 
 .btn-action:hover {
   transform: translateY(-2px);
-  box-shadow: 0 16px 35px rgba(0, 102, 204, 0.55);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .btn-action:active {
   transform: scale(0.96);
 }
 
-/* ================= MOBILE TOGGLE ================= */
+.btn-icon {
+  font-size: 1rem;
+}
+
+/* Blue theme for both buttons */
+.call-btn {
+  background: #005faf;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.order-btn {
+ background: #005faf;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+/* Alternative blue theme (both blue) */
+/* .call-btn {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.order-btn {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+} */
+
+/* Different shades of blue option */
+/* .call-btn {
+  background: linear-gradient(135deg, #1e90ff, #0066cc);
+  box-shadow: 
+
+/* ================= MOBILE TOGGLE BUTTON ================= */
 .nav-toggle {
   display: none;
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: white;
-  border: none;
+  background: var(--white);
+  border: 2px solid rgba(0, 59, 115, 0.1);
   cursor: pointer;
+  position: relative;
+  transition: var(--transition);
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-toggle:hover {
+  background: #f0f7ff;
+  transform: rotate(90deg);
 }
 
 .nav-toggle span,
@@ -182,48 +256,115 @@ header.hidden {
 .nav-toggle span::after {
   content: '';
   display: block;
-  width: 18px;
+  width: 20px;
   height: 2px;
   background: var(--navy);
+  border-radius: 2px;
   transition: 0.3s;
+  position: absolute;
 }
 
-.nav-toggle span::before {
-  transform: translateY(-5px);
-}
-
-.nav-toggle span::after {
-  transform: translateY(5px);
-}
-
-.nav-toggle.active span {
+.nav-toggle span {
   background: transparent;
 }
 
+.nav-toggle span::before {
+  transform: translateY(-6px);
+}
+
+.nav-toggle span::after {
+  transform: translateY(6px);
+}
+
 .nav-toggle.active span::before {
-  transform: rotate(45deg);
+  transform: rotate(45deg) translate(0, 0);
 }
 
 .nav-toggle.active span::after {
-  transform: rotate(-45deg);
+  transform: rotate(-45deg) translate(0, 0);
 }
 
 /* ================= MOBILE MENU ================= */
 .nav-mobile {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
   background: rgba(0, 59, 115, 0.98);
+  backdrop-filter: blur(20px);
   padding: 1rem 1.4rem;
-  display: flex;
+  display: none;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 0.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  transform: translateY(-10px);
+  opacity: 0;
+  transition: var(--transition);
+  max-height: 70vh;
+  overflow-y: auto;
+  z-index: 1001;
+}
+
+.nav-mobile.open {
+  display: flex;
+  transform: translateY(0);
+  opacity: 1;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .nav-mobile a {
   color: white;
-  font-size: 0.95rem;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  transition: var(--transition);
+  border-left: 3px solid transparent;
   cursor: pointer;
 }
 
-/* ================= RESPONSIVE ================= */
+.nav-mobile a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-left-color: #6dd5ff;
+  padding-left: 1.5rem;
+}
+
+.nav-mobile a.active {
+  background: rgba(255, 255, 255, 0.15);
+  border-left-color: var(--white);
+  font-weight: 600;
+}
+
+/* MOBILE CTA BUTTONS */
+.mobile-cta-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-cta-buttons .btn-action {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 0.9rem;
+}
+
+/* ================= RESPONSIVE DESIGN ================= */
 @media (max-width: 1024px) {
   .nav-links,
   .nav-cta {
@@ -232,12 +373,139 @@ header.hidden {
 
   .nav-toggle {
     display: flex;
-    align-items: center;
-    justify-content: center;
+  }
+
+  .nav {
+    padding: 0.6rem 1rem;
+  }
+
+  .brand-logo {
+    height: 45px;
+  }
+
+  .brand-text-title {
+    font-size: 1.2rem;
+  }
+
+  .brand-text-sub {
+    font-size: 0.7rem;
   }
 }
 
-/* ================= BODY OFFSET ================= */
-body {
-  padding-top: 110px; /* header + top bar height */
+@media (max-width: 768px) {
+  body {
+    padding-top: 70px; /* Adjust for smaller header */
+  }
+
+  .nav {
+    padding: 0.5rem 1rem;
+  }
+
+  .brand-logo {
+    height: 40px;
+  }
+
+  .brand-text-title {
+    font-size: 1.1rem;
+  }
+
+  .nav-mobile {
+    padding: 1rem;
+  }
+
+  .nav-mobile a {
+    font-size: 0.95rem;
+    padding: 0.7rem 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand {
+    gap: 0.5rem;
+  }
+
+  .brand-logo {
+    height: 35px;
+  }
+
+  .brand-text-title {
+    font-size: 1rem;
+  }
+
+  .brand-text-sub {
+    font-size: 0.65rem;
+    display: none; /* Hide subtitle on very small screens */
+  }
+
+  .nav-toggle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .mobile-cta-buttons {
+    gap: 0.6rem;
+  }
+
+  .mobile-cta-buttons .btn-action {
+    padding: 0.7rem;
+    font-size: 0.85rem;
+  }
+
+  body {
+    padding-top: 65px; /* Further adjust for very small screens */
+  }
+}
+
+/* ================= ACCESSIBILITY ================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .nav-toggle:hover {
+    transform: none;
+  }
+}
+
+/* Focus styles for accessibility */
+.btn-action:focus,
+.nav-toggle:focus,
+.nav-mobile a:focus,
+.brand:focus {
+  outline: 2px solid var(--white);
+  outline-offset: 2px;
+}
+
+/* Prevent text selection on interactive elements */
+.brand,
+.btn-action,
+.nav-toggle,
+.nav-links a,
+.nav-mobile a {
+  user-select: none;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-padding-top: 80px; /* Match body padding-top */
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    scroll-padding-top: 65px;
+  }
 }
