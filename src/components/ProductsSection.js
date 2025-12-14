@@ -58,6 +58,9 @@ const ProductsSection = () => {
     <section id="products" className="products-section">
       <div className="section-kicker">Our Premium Products</div>
       <br />
+      <br />
+      <br />
+
       <div className="products-inner">
         {/* LEFT COLUMN - PRODUCT SUMMARY */}
         <div className="product-column">
