@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import './ContactSection.css';
 import { useInView } from 'react-intersection-observer';
 
@@ -14,9 +14,6 @@ const ContactSection = () => {
     message: ''
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null);
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -25,31 +22,33 @@ const ContactSection = () => {
     }));
   };
 
-  const handleFormSubmit = async (e) => {
+  // Send WhatsApp message from form
+  const handleFormSubmit = (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    const { name, phone, message } = formData;
 
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus('success');
-      setFormData({ name: '', phone: '', message: '' });
-      
-      // Reset status after 5 seconds
-      setTimeout(() => {
-        setSubmitStatus(null);
-      }, 5000);
-    }, 1500);
+    if (!name || !phone || !message) return;
+
+    const text = `Salam AquaPureX, I have a quick inquiry.\n\nName: ${name}\nPhone: ${phone}\nMessage: ${message}`;
+    const url = `https://wa.me/923021724801?text=${encodeURIComponent(text)}`;
+
+    window.open(url, '_blank');
+
+    // Reset form
+    setFormData({ name: '', phone: '', message: '' });
   };
 
+  // Direct WhatsApp contact
   const openWhatsApp = () => {
+    
     const phone = '923021724801';
     const msg = encodeURIComponent('Salam AquaPureX, I need help with an inquiry.');
     window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
   };
 
+  // Direct phone call
   const callNow = () => {
-    window.location.href = 'tel:03020758141';
+    window.location.href = 'tel:+923021724801';
   };
 
   return (
@@ -64,6 +63,7 @@ const ContactSection = () => {
         </div>
 
         <div className="split">
+          {/* Contact Details */}
           <div>
             <div className="card" style={{marginBottom: '1rem'}}>
               <h3 className="card-title">Contact Details</h3>
@@ -71,10 +71,8 @@ const ContactSection = () => {
               <p className="card-text"><strong>Address:</strong> Ali Town, Main Boulevard, Johar Town, Lahore</p>
               <p className="card-text"><strong>Hours:</strong> 9:00 AM – 10:00 PM, 7 days a week</p>
               
-              <div style={{marginTop: '1rem', display: 'flex', gap: '0.5rem', color: 'white'}}>
-                <button className="btn btn-primary btn-3d" onClick={callNow} style={{
-                  color:'white',
-                }}>
+              <div style={{marginTop: '1rem', display: 'flex', gap: '0.5rem'}}>
+                <button className="btn btn-primary btn-3d" onClick={callNow} style={{color:'white'}}>
                   Call Now
                 </button>
                 <button className="btn btn-outline btn-3d" onClick={openWhatsApp}>
@@ -84,6 +82,7 @@ const ContactSection = () => {
             </div>
           </div>
 
+          {/* Quick Inquiry Form */}
           <div>
             <div className="card">
               <h3 className="card-title">Quick Inquiry</h3>
@@ -120,22 +119,15 @@ const ContactSection = () => {
                     required
                     style={{padding: '0.55rem 0.7rem', borderRadius: '9px', border: '1px solid rgba(0,0,0,0.12)', outline: 'none'}}
                   ></textarea>
-                  
-                  {submitStatus === 'success' && (
-                    <div style={{color: 'green', fontSize: '0.8rem', padding: '0.5rem', background: 'rgba(0,255,0,0.1)', borderRadius: '5px'}}>
-                      ✓ Thank you! Our team will contact you shortly.
-                    </div>
-                  )}
-                  
+
                   <button 
                     className="btn btn-primary btn-3d" 
                     type="submit" 
                     style={{width: 'max-content'}}
-                    disabled={isSubmitting}
                   >
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                    Send Message via WhatsApp
                   </button>
-                  
+
                   <small style={{color: 'var(--text-muted)'}}>
                     For urgent orders, please call or WhatsApp directly.
                   </small>
