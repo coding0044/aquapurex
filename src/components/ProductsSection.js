@@ -131,10 +131,7 @@ const ProductsSection = () => {
             onMouseLeave={handleMouseLeave}
           >
             {/* Auto-play toggle */}
-            <button className="auto-play-toggle" onClick={toggleAutoPlay}>
-              <span className="play-icon">{isAutoPlaying ? '⏸️' : '▶️'}</span>
-            </button>
-            
+          
             {/* Product Counter */}
             <div className="counter-badge">
               {selectedProduct + 1} / {products.length}
