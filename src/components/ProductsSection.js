@@ -59,7 +59,7 @@ const ProductsSection = () => {
       <div className="section-kicker">Our Premium Products</div>
       <br />
       <br />
-      
+
 
       <div className="products-inner">
         {/* LEFT COLUMN - PRODUCT SUMMARY */}
@@ -75,7 +75,7 @@ const ProductsSection = () => {
               </div>
               <div className="product-text">
                 <h3 className="product-title" style={{
-                  marginLeft:'55px'
+                  marginLeft: '55px'
                 }}>{products[selectedProduct].title}</h3>
                 <div className="product-size">{products[selectedProduct].size}</div>
                 <span className="product-tag">{products[selectedProduct].tag}</span>
@@ -85,7 +85,7 @@ const ProductsSection = () => {
             <p className="product-description">{products[selectedProduct].description}</p>
 
             <div className="product-actions">
-              <button 
+              <button
                 className="btn btn-primary pulse-animation"
                 onClick={handleOrderClick}
               >
@@ -101,11 +101,11 @@ const ProductsSection = () => {
             className={`header-content ${inView ? 'visible' : ''}`}
             ref={ref}
           >
-                  <h2 className="header-title">
+            <h2 className="header-title">
               Pure Hydration <br /> Solution
             </h2>
             <p className="header-subtitle">
-           AquaPureX combines advanced purification technology with carefully balanced minerals to give you water that is not only safe, but refreshing in every sip.
+              AquaPureX combines advanced purification technology with carefully balanced minerals to give you water that is not only safe, but refreshing in every sip.
 
 
             </p>
