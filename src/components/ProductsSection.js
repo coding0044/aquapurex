@@ -140,13 +140,14 @@ const ProductsSection = () => {
             {/* Image Slider Container */}
             <div className="slider-container">
               <div className="slider-wrapper">
-                <div
-                  className="slider-track"
-                  style={{
-                    transform: `translateX(-${selectedProduct * 100}%)`,
-                    transition: isAnimating ? 'transform 0.5s ease' : 'none'
-                  }}
-                >
+<div
+  className="slider-track"
+  style={{
+    transform: `translateX(-${selectedProduct * (100 / products.length)}%)`,
+    transition: 'transform 0.5s ease-in-out'
+  }}
+>
+
                   {products.map((product, index) => (
                     <div key={product.id} className="slide">
                       <div className="product-header">
