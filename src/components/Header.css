@@ -434,7 +434,6 @@ header.hidden {
 
   .brand-text-sub {
     font-size: 0.65rem;
-    display: none; /* Hide subtitle on very small screens */
   }
 
   .nav-toggle {
