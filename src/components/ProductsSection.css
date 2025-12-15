@@ -120,12 +120,14 @@
   height: 100%;
   transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   /* Width should be 100% * number of slides */
-  width: 300%; /* 3 slides = 3 * 100% = 300% */
+  width: 300%;
+  /* 3 slides = 3 * 100% = 300% */
 }
 
 /* Each slide should take exactly 1/3 of the track width */
 .slide {
-  width: 33.333%; /* Each slide takes 1/3 of the track */
+  width: 33.333%;
+  /* Each slide takes 1/3 of the track */
   height: 100%;
   flex-shrink: 0;
   display: flex;
@@ -168,9 +170,9 @@
 
 /* PRODUCT IMAGE */
 .product-image {
-    width: 147%;
-    height: 104%;
-    border-radius: 13px;
+  width: 147%;
+  height: 104%;
+  border-radius: 13px;
   transition: transform 0.3s ease;
 }
 
@@ -364,8 +366,8 @@
   border-radius: 30px;
   border: 2px solid transparent;
   background: linear-gradient(135deg, #00aaff, #003b73) border-box;
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) padding-box, 
+  -webkit-mask:
+    linear-gradient(#fff 0 0) padding-box,
     linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -373,10 +375,13 @@
 }
 
 @keyframes pulseBorder {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.5;
     transform: scale(1);
   }
+
   50% {
     opacity: 1;
     transform: scale(1.02);
@@ -475,12 +480,12 @@
   .products-inner {
     gap: 2rem;
   }
-  
+
   .product-image-container {
     width: 250px;
     height: 250px;
   }
-  
+
   .header-title {
     font-size: 3rem;
   }
@@ -492,39 +497,41 @@
     align-items: center;
     gap: 3rem;
   }
-  
-  .product-column, .header-column {
+
+  .product-column,
+  .header-column {
     width: 100%;
     max-width: 700px;
   }
-  
+
   .product-image-container {
     width: 260px;
     height: 260px;
   }
-  
+
   .header-content {
     text-align: center;
   }
-  
+
   .header-title {
     font-size: 2.8rem;
   }
-  
+
   .header-subtitle {
     font-size: 1.5rem;
     text-align: center;
   }
-  
+
   .product-selector {
     justify-content: center;
   }
-  
+
   /* Update slider track for tablet */
   .slider-track {
-    width: 300%; /* Still 3 slides */
+    width: 300%;
+    /* Still 3 slides */
   }
-  
+
   .slide {
     width: 33.333%;
   }
@@ -534,63 +541,64 @@
   .products-section {
     padding: 3rem 1rem;
   }
-  
+
   .product-card {
     padding: 1.5rem;
   }
-  
+
   .slider-container {
     height: 500px;
   }
-  
+
   .product-header {
     flex-direction: column;
     gap: 1.5rem;
   }
-  
+
   .product-image-container {
     width: 260px;
     height: 260px;
   }
-  
+
   .product-text {
     text-align: center;
     max-width: 100%;
   }
-  
+
   .product-title {
     font-size: 1.6rem;
   }
-  
+
   .product-description {
     text-align: center;
     font-size: 0.95rem;
   }
-  
+
   .slider-nav {
     width: 45px;
     height: 45px;
     font-size: 1.8rem;
   }
-  
+
   .header-title {
     font-size: 2.5rem;
   }
-  
+
   .header-subtitle {
     font-size: 1.3rem;
   }
-  
+
   .btn {
     padding: 0.9rem 2rem;
     font-size: 1rem;
   }
-  
+
   /* Update slider track for mobile */
   .slider-track {
-    width: 300%; /* Still 3 slides */
+    width: 300%;
+    /* Still 3 slides */
   }
-  
+
   .slide {
     width: 33.333%;
   }
@@ -600,55 +608,56 @@
   .products-section {
     padding: 2rem 0.8rem;
   }
-  
+
   .slider-container {
     height: 450px;
   }
-  
+
   .product-image-container {
     width: 260px;
     height: 260px;
   }
-  
+
   .slider-nav {
     width: 40px;
     height: 40px;
     font-size: 1.6rem;
   }
-  
+
   .slider-nav.prev {
     left: 10px;
   }
-  
+
   .slider-nav.next {
     right: 10px;
   }
-  
+
   .header-title {
     font-size: 2.2rem;
   }
-  
+
   .header-subtitle {
     font-size: 1.2rem;
   }
-  
+
   .btn {
     width: 100%;
     justify-content: center;
   }
-  
+
   /* Update slider track for small mobile */
   .slider-track {
-    width: 300%; /* Still 3 slides */
+    width: 300%;
+    /* Still 3 slides */
   }
-  
+
   .slide {
     width: 33.333%;
   }
 }
 
 /* Fallback for missing images */
-.product-image:not([src]), 
+.product-image:not([src]),
 .product-image[src=""] {
   content: url("https://via.placeholder.com/280x280/003b73/ffffff?text=AquaPureX");
   background: #f0f7ff;
