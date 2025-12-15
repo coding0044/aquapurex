@@ -121,17 +121,17 @@ const ProductsSection = () => {
     <section id="products" className="products-section">
       <div className="section-kicker">Our Premium Products</div>
       <br />
-      
+
       <div className="products-inner">
         {/* LEFT COLUMN - PRODUCT SLIDER */}
         <div className="product-column">
-          <div 
+          <div
             className="product-card"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
             {/* Auto-play toggle */}
-          
+
             {/* Product Counter */}
             <div className="counter-badge">
               {selectedProduct + 1} / {products.length}
@@ -140,9 +140,9 @@ const ProductsSection = () => {
             {/* Image Slider Container */}
             <div className="slider-container">
               <div className="slider-wrapper">
-                <div 
-                  className="slider-track" 
-                  style={{ 
+                <div
+                  className="slider-track"
+                  style={{
                     transform: `translateX(-${selectedProduct * 100}%)`,
                     transition: isAnimating ? 'transform 0.5s ease' : 'none'
                   }}
@@ -173,9 +173,9 @@ const ProductsSection = () => {
                   ))}
                 </div>
               </div>
-              
-           
-             
+
+
+
 
               {/* Slide Indicators */}
               <div className="slide-indicators">
@@ -190,9 +190,9 @@ const ProductsSection = () => {
 
               {/* Auto-play progress bar */}
               <div className="slider-progress">
-                <div 
+                <div
                   className="progress-bar"
-                  style={{ 
+                  style={{
                     width: isAutoPlaying ? '100%' : '0%',
                     transition: isAutoPlaying ? 'width 4s linear' : 'none',
                     animationPlayState: isAutoPlaying ? 'running' : 'paused'

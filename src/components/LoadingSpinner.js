@@ -21,8 +21,8 @@ const LoadingSpinner = () => {
         <div></div>
         <div></div>
       </div>
-      <h2 style={{marginTop: '2rem', fontFamily: 'Poppins, sans-serif'}}>AquaPureX</h2>
-      <p style={{opacity: 0.8, marginTop: '0.5rem'}}>Loading Pure Hydration Experience...</p>
+      <h2 style={{ marginTop: '2rem', fontFamily: 'Poppins, sans-serif' }}>AquaPureX</h2>
+      <p style={{ opacity: 0.8, marginTop: '0.5rem' }}>Loading Pure Hydration Experience...</p>
     </div>
   );
 };

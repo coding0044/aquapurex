@@ -122,7 +122,7 @@
   transition: all 0.5s ease;
 }
 
-.progress-step.active + .progress-step .progress-line {
+.progress-step.active+.progress-step .progress-line {
   background-position: left bottom;
   background: linear-gradient(90deg, var(--primary) 50%, #e5e7eb 50%);
   background-size: 200% 100%;
@@ -231,9 +231,12 @@
 
 /* Animation */
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-5px);
   }
@@ -246,7 +249,7 @@
     max-width: 800px;
     margin: 2rem auto;
   }
-  
+
   .progress-line {
     width: 40px;
   }
@@ -256,22 +259,23 @@
   .process-section {
     padding: 3rem 1rem;
   }
-  
+
   .process-grid {
     grid-template-columns: 1fr;
     max-width: 420px;
     gap: 1rem;
   }
-  
+
   .process-progress {
     margin: 2rem auto;
-    display: none; /* Hide progress bar on mobile */
+    display: none;
+    /* Hide progress bar on mobile */
   }
-  
+
   .section-kicker {
     font-size: 0.75rem;
   }
-  
+
   .section-title {
     font-size: 1.5rem;
   }
@@ -281,15 +285,15 @@
   .process-card {
     padding: 1.5rem 1rem;
   }
-  
+
   .card-icon {
     font-size: 2rem;
   }
-  
+
   .step-title {
     font-size: 1.1rem;
   }
-  
+
   .step-text {
     font-size: 0.85rem;
   }
@@ -303,6 +307,7 @@
 
 /* Loading State */
 @media (prefers-reduced-motion: reduce) {
+
   .process-card,
   .kicker-icon,
   .progress-dot {
