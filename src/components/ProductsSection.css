@@ -148,17 +148,17 @@
 
 
 .product-image-container {
-    flex-shrink: 0;
-    width: 265px;
-    height: 265px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: white;
-    border-radius: 12px;
-    padding: 10px;
-    padding-left: 5px;
-    padding-right: 5px;
+  flex-shrink: 0;
+  width: 265px;
+  height: 265px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 12px;
+  padding: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .image-carousel {
