@@ -8,7 +8,7 @@ const WaterDrops = () => {
     const generateDrops = () => {
       const newDrops = [];
       const newBubbles = [];
-      
+
       // Generate water drops
       for (let i = 0; i < 15; i++) {
         const size = Math.random() * 15 + 3;
@@ -16,7 +16,7 @@ const WaterDrops = () => {
         const duration = Math.random() * 3 + 2;
         const delay = Math.random() * 5;
         const opacity = Math.random() * 0.3 + 0.1;
-        
+
         newDrops.push({
           id: `drop-${Date.now()}-${i}`,
           size,
@@ -34,7 +34,7 @@ const WaterDrops = () => {
         const duration = Math.random() * 4 + 3;
         const delay = Math.random() * 4;
         const opacity = Math.random() * 0.2 + 0.1;
-        
+
         newBubbles.push({
           id: `bubble-${Date.now()}-${i}`,
           size,
