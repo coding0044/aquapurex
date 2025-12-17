@@ -146,18 +146,19 @@
   height: 100%;
 }
 
-/* IMAGE CONTAINER */
+
 .product-image-container {
-  flex-shrink: 0;
-  width: 260px;
-  height: 280px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: white;
-  border-radius: 15px;
-  padding: 1rem;
-  box-shadow: 0 5px 20px rgba(0, 59, 115, 0.1);
+    flex-shrink: 0;
+    width: 265px;
+    height: 265px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 12px;
+    padding: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .image-carousel {
