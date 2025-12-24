@@ -58,8 +58,7 @@ const ContactSection = () => {
           <div className="section-kicker">Contact</div>
           <h2 className="section-title">We're Here to Help.</h2>
           <p className="section-subtitle">
-            Have questions about delivery areas, bulk orders, bulk orders
-for ceremonies, events, and functions. Reach out to our team and we'll be happy to assist.
+            Have questions about delivery areas, bulk orders for ceremonies, events, and functions. Reach out to our team and we'll be happy to assist.
           </p>
         </div>
 
