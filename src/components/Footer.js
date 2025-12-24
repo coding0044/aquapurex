@@ -33,8 +33,12 @@ const Footer = ({ scrollToId }) => {
                 <img src="images/360/bottle-360/LogoDesign.png" alt="AquaPureX logo" />
               </div>
               <div>
-                <div className="brand-text-title">AquaPureX</div>
-                <div className="brand-text-sub">Pure Water – Advanced Technology - Since 2015</div>
+
+              <div className="brand-text-title" style={{marginTop:'-15px'}}>Aqua <p style={{color: "rgb(134 200 72)" , marginTop: "-23px" , marginLeft: "54px"}}>PureX</p></div>
+
+
+                <div className="brand-text-sub">Pure Water – Advanced Technology 
+                  <br /> Since 2015</div>
               </div>
             </div>
             <p>

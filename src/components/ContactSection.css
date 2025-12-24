@@ -75,7 +75,7 @@
 
 .split {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 2rem;
   align-items: start;
 }
@@ -83,7 +83,7 @@
 .card {
   background: white;
   border-radius: 20px;
-  padding: 2rem;
+  padding: 2.5rem;
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05),
               0 8px 10px -6px rgba(0, 0, 0, 0.01);
   border: 1px solid rgba(59, 130, 246, 0.08);
@@ -135,93 +135,109 @@
   margin-bottom: 0.75rem;
 }
 
-.card-text strong {
-  color: #1e293b;
-  font-weight: 600;
+/* Order Form Styles */
+.order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-size: 0.9rem;
 }
 
-/* Form Styling */
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
 .form-group {
-  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0;
 }
 
-.form-label {
-  display: block;
-  margin-bottom: 0.5rem;
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
   font-weight: 500;
   color: #334155;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.form-group label::after {
+  content: '*';
+  color: #ef4444;
   font-size: 0.9rem;
 }
 
-.form-input,
-.form-textarea {
-  width: 100%;
-  padding: 0.8rem 1rem;
-  border-radius: 10px;
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
   border: 2px solid #e2e8f0;
   background: #f8fafc;
-  font-family: inherit;
+  outline: none;
   font-size: 0.9rem;
-  color: #1e293b;
   transition: all 0.3s ease;
+  font-family: inherit;
+  color: #1e293b;
 }
 
-.form-input:focus,
-.form-textarea:focus {
-  outline: none;
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
   border-color: #005faf;
   background: white;
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
-.form-input::placeholder,
-.form-textarea::placeholder {
-  color: #94a3b8;
+.form-group select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  padding-right: 3rem;
 }
 
-.form-textarea {
-  min-height: 120px;
+.form-group textarea {
+  min-height: 80px;
   resize: vertical;
 }
 
-/* Button Base Styles */
-.btn {
-  padding: 0.8rem 1.5rem;
+.helper-text {
+  color: #94a3b8;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+.form-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.form-buttons .btn {
+  padding: 0.9rem 1.5rem;
+  font-size: 0.95rem;
+  text-align: center;
   border-radius: 12px;
   font-weight: 600;
-  font-size: 0.9rem;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  text-decoration: none;
-  overflow: hidden;
-  background: transparent;
-  color: inherit;
 }
 
-.btn::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
-}
-
-.btn:hover::before {
-  width: 300px;
-  height: 300px;
-}
-
-/* Primary Button */
 .btn-primary {
   background: linear-gradient(135deg, #005faf 0%, #005faf 100%);
   color: white;
@@ -234,28 +250,77 @@
   transform: translateY(-2px);
 }
 
-.btn-primary::before {
-  background: rgba(255, 255, 255, 0.15);
+/* Error Styling */
+.error {
+  border-color: #ef4444 !important;
+  background-color: #fef2f2 !important;
 }
 
-/* Outline Button - FIXED */
-.btn-outline {
-  background: transparent;
+.error:focus {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
+}
+
+.error-message {
+  color: #ef4444;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.error-message::before {
+  content: '⚠';
+  font-size: 0.9rem;
+}
+
+/* Form Footer Link */
+.phone-link {
+  background: none;
+  border: none;
   color: #005faf;
-  border: 2px solid #005faf;
-  position: relative;
-  z-index: 1;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 0;
+  margin-left: 0.25rem;
+  font-family: inherit;
 }
 
-.btn-outline:hover {
-  background: rgba(59, 130, 246, 0.05);
+.phone-link:hover {
   color: #2563eb;
-  border-color: #2563eb;
-  transform: translateY(-2px);
 }
 
-.btn-outline::before {
-  background: rgba(59, 130, 246, 0.1);
+/* Fade in animation for errors */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Helper text for optional fields */
+.helper-text {
+  color: #64748b;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+.btn-secondary {
+  background: linear-gradient(135deg, #25D366 0%, #1da851 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.btn-secondary:hover {
+ background: linear-gradient(135deg, #005faf 0%, #005faf 100%);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+  transform: translateY(-2px);
 }
 
 /* 3D Button Effects */
@@ -272,75 +337,36 @@
   top: 0;
   left: 0;
   border-radius: 12px;
-  transform: translateZ(-10px);
+  transform: translateZ(-8px);
   transition: all 0.3s ease;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
-
-
-
 
 .btn-3d:hover::after {
-  transform: translateZ(-5px);
+  transform: translateZ(-4px);
 }
 
-/* Ensure button text stays visible */
-.btn span,
-.btn i,
-.btn svg {
-  position: relative;
-  z-index: 2;
-}
-
-/* Contact Info Styling */
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.contact-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-}
-
-.contact-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  color: #005faf;
-  font-size: 1.2rem;
-}
-
-.contact-details h4 {
-  margin: 0 0 0.25rem 0;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #1e293b;
-}
-
-.contact-details p {
-  margin: 0;
+.form-footer {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  text-align: center;
   color: #64748b;
-  font-size: 0.9rem;
-  line-height: 1.5;
+  font-size: 0.85rem;
 }
 
-.contact-details a {
+.form-footer button {
+  background: none;
+  border: none;
   color: #005faf;
-  text-decoration: none;
-  transition: color 0.3s ease;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 0;
+  margin-left: 0.25rem;
 }
 
-.contact-details a:hover {
+.form-footer button:hover {
   color: #2563eb;
-  text-decoration: underline;
 }
 
 /* Success message */
@@ -352,14 +378,6 @@
   border-radius: 10px;
   margin-bottom: 1.5rem;
   animation: slideIn 0.3s ease;
-}
-
-/* Small text */
-small {
-  font-size: 0.8rem;
-  color: #64748b;
-  display: block;
-  margin-top: 0.5rem;
 }
 
 /* Animations */
@@ -393,8 +411,18 @@ small {
     padding: 1.5rem;
   }
   
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .form-buttons {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
   .btn {
-    padding: 0.7rem 1.2rem;
+    padding: 0.8rem 1.2rem;
     font-size: 0.85rem;
   }
 }
@@ -420,17 +448,21 @@ small {
     font-size: 1.3rem;
   }
   
-  .btn {
-    width: 100%;
-    justify-content: center;
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.65rem 0.85rem;
   }
   
-  .btn-group {
-    flex-direction: column;
-    width: 100%;
+  .card {
+    padding: 1.25rem;
   }
-  
-  .btn-group .btn {
-    margin-bottom: 0.5rem;
-  }
+}
+
+/* Add this for the required field asterisk */
+.form-group label:has(~ input:required)::after,
+.form-group label:has(~ textarea:required)::after {
+  content: '*';
+  color: #ef4444;
+  font-size: 0.9rem;
 }

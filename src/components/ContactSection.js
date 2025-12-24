@@ -11,8 +11,14 @@ const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    message: ''
+    bottles: '1',
+    location: '',
+    address: '',
+    notes: ''
   });
+
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -20,120 +26,189 @@ const ContactSection = () => {
       ...prev,
       [name]: value
     }));
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
+    }
   };
 
-  // Send WhatsApp message from form
+  const handleBlur = (e) => {
+    const { name } = e.target;
+    setTouched(prev => ({
+      ...prev,
+      [name]: true
+    }));
+    validateField(name, formData[name]);
+  };
+
+  const validateField = (name, value) => {
+    let error = '';
+    switch (name) {
+      case 'name':
+        if (!value.trim()) error = 'Full name is required';
+        else if (value.trim().length < 2) error = 'Name must be at least 2 characters';
+        break;
+      case 'phone':
+        if (!value.trim()) error = 'Phone number is required';
+        else if (!/^03\d{9}$/.test(value.replace(/\D/g, ''))) error = 'Enter a valid Pakistani number (03XXXXXXXXX)';
+        break;
+      case 'location':
+        if (!value.trim()) error = 'Location is required';
+        break;
+      case 'address':
+        if (!value.trim()) error = 'Delivery address is required';
+        else if (value.trim().length < 10) error = 'Please provide a complete address';
+        break;
+      default:
+        break;
+    }
+    setErrors(prev => ({ ...prev, [name]: error }));
+    return !error;
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    let isValid = true;
+
+    if (!formData.name.trim()) { newErrors.name = 'Full name is required'; isValid = false; }
+    else if (formData.name.trim().length < 2) { newErrors.name = 'Name must be at least 2 characters'; isValid = false; }
+
+    if (!formData.phone.trim()) { newErrors.phone = 'Phone number is required'; isValid = false; }
+    else if (!/^03\d{9}$/.test(formData.phone.replace(/\D/g, ''))) { newErrors.phone = 'Enter a valid Pakistani number (03XXXXXXXXX)'; isValid = false; }
+
+    if (!formData.location.trim()) { newErrors.location = 'Location is required'; isValid = false; }
+
+    if (!formData.address.trim()) { newErrors.address = 'Delivery address is required'; isValid = false; }
+    else if (formData.address.trim().length < 10) { newErrors.address = 'Please provide a complete address'; isValid = false; }
+
+    setErrors(newErrors);
+    return isValid;
+  };
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const { name, phone, message } = formData;
+    setTouched({ name: true, phone: true, location: true, address: true });
 
-    if (!name || !phone || !message) return;
+    if (!validateForm()) {
+      const firstErrorField = document.querySelector('.error');
+      if (firstErrorField) firstErrorField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
 
-    const text = `Salam AquaPureX, I have a quick inquiry.\n\nName: ${name}\nPhone: ${phone}\nMessage: ${message}`;
+    const { name, phone, bottles, location, address, notes } = formData;
+
+    const text = 
+`Assalam-o-Alaikum AquaPureX 
+
+I would like to place a new order for 19L Water Bottles.
+
+Customer Details
+━━━━━━━━━━━━━━
+Name: ${name}
+Mobile: ${phone}
+
+Order Details
+━━━━━━━━━━━━━━
+Number of 19L Bottles: ${bottles}
+Area / Location: ${location}
+
+Delivery Address
+━━━━━━━━━━━━━━
+${address}
+
+Additional Notes
+━━━━━━━━━━━━━━
+${notes || 'No special instructions'}`;
+
     const url = `https://wa.me/+923711724801?text=${encodeURIComponent(text)}`;
-
     window.open(url, '_blank');
 
-    // Reset form
-    setFormData({ name: '', phone: '', message: '' });
+    setFormData({ name: '', phone: '', bottles: '1', location: '', address: '', notes: '' });
+    setErrors({});
+    setTouched({});
   };
 
-  // Direct WhatsApp contact
   const openWhatsApp = () => {
-    
     const phone = '+923711724801';
-    const msg = encodeURIComponent('Salam AquaPureX, I need help with an inquiry.');
+    const msg = encodeURIComponent('Salam AquaPureX, I need help with an order.');
     window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
   };
 
-  // Direct phone call
   const callNow = () => {
     window.location.href = 'tel:+923711724801';
   };
+
+  const bottleOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 20];
 
   return (
     <section id="contact">
       <div className="section-inner">
         <div className={`section-header ${inView ? 'section-visible' : ''}`} ref={ref}>
-          <div className="section-kicker">Contact</div>
-          <h2 className="section-title">We're Here to Help.</h2>
+          <div className="section-kicker">Order Now</div>
+          <h2 className="section-title">Get Pure Water Delivered to Your Doorstep</h2>
           <p className="section-subtitle">
-            Have questions about delivery areas, bulk orders for ceremonies, events, and functions. Reach out to our team and we'll be happy to assist.
+            Place your order for 19L water bottles. Fill in the details below and we'll deliver to your location.
           </p>
         </div>
 
-        <div className="split">
-          {/* Contact Details */}
-          <div>
-            <div className="card" style={{marginBottom: '1rem'}}>
-              <h3 className="card-title">Contact Details</h3>
-              <p className="card-text"><strong>Phone:</strong> 0371-1724801</p>
-              <p className="card-text"><strong>Address:</strong> Ali Town, Main Boulevard, Johar Town, Lahore</p>
-              <p className="card-text"><strong>Hours:</strong> 8:00 AM – 11:00 PM, 7 days a week</p>
-              
-              <div style={{marginTop: '1rem', display: 'flex', gap: '0.5rem'}}>
-                <button className="btn btn-primary btn-3d" onClick={callNow} style={{color:'white'}}>
-                  Call Now
-                </button>
-                <button className="btn btn-outline btn-3d" onClick={openWhatsApp}>
-                  WhatsApp
-                </button>
-              </div>
-            </div>
-          </div>
+        <div>
+          <div className="card">
+            <h3 className="card-title">Place Your Order</h3>
+            <p className="card-text" style={{ marginBottom: '1.2rem' }}>
+              Fill in your details and submit to order via WhatsApp
+            </p>
 
-          {/* Quick Inquiry Form */}
-          <div>
-            <div className="card">
-              <h3 className="card-title">Quick Inquiry</h3>
-              <p className="card-text" style={{marginBottom: '0.7rem'}}>
-                Share your name, number, and message — our team will get back to you.
-              </p>
-              
-              <form onSubmit={handleFormSubmit}>
-                <div style={{display: 'flex', flexDirection: 'column', gap: '0.55rem', fontSize: '0.86rem'}}>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Your Name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    style={{padding: '0.55rem 0.7rem', borderRadius: '9px', border: '1px solid rgba(0,0,0,0.12)', outline: 'none'}}
-                  />
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder="Phone Number"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    required
-                    style={{padding: '0.55rem 0.7rem', borderRadius: '9px', border: '1px solid rgba(0,0,0,0.12)', outline: 'none'}}
-                  />
-                  <textarea
-                    rows="3"
-                    name="message"
-                    placeholder="Address/Location"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required
-                    style={{padding: '0.55rem 0.7rem', borderRadius: '9px', border: '1px solid rgba(0,0,0,0.12)', outline: 'none'}}
-                  ></textarea>
+            <form onSubmit={handleFormSubmit} noValidate>
+              <div className="order-form">
 
-                  <button 
-                    className="btn btn-primary btn-3d" 
-                    type="submit" 
-                    style={{width: 'max-content'}}
-                  >
-                    Send Message via WhatsApp
-                  </button>
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="name">Full Name *</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" value={formData.name} onChange={handleInputChange} onBlur={handleBlur} className={errors.name ? 'error' : ''} />
+                    {errors.name && <div className="error-message">{errors.name}</div>}
+                  </div>
 
-                  <small style={{color: 'var(--text-muted)'}}>
-                    For urgent orders, please call or WhatsApp directly.
-                  </small>
+                  <div className="form-group">
+                    <label htmlFor="phone">Mobile Number *</label>
+                    <input type="tel" id="phone" name="phone" placeholder="03xx-xxxxxxx" value={formData.phone} onChange={handleInputChange} onBlur={handleBlur} className={errors.phone ? 'error' : ''} />
+                    {errors.phone && <div className="error-message">{errors.phone}</div>}
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="bottles">Number of 19L Bottles *</label>
+                    <select id="bottles" name="bottles" value={formData.bottles} onChange={handleInputChange}>
+                      {bottleOptions.map(num => <option key={num} value={num}>{num}</option>)}
+                    </select>
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="location">Location / Area *</label>
+                    <input type="text" id="location" name="location" placeholder="e.g., Johar Town, Lahore" value={formData.location} onChange={handleInputChange} onBlur={handleBlur} className={errors.location ? 'error' : ''} />
+                    {errors.location && <div className="error-message">{errors.location}</div>}
+                  </div>
                 </div>
-              </form>
-            </div>
+
+                <div className="form-group full-width">
+                  <label htmlFor="address">Delivery Address *</label>
+                  <textarea id="address" name="address" placeholder="House/Shop no, street, block, landmark..." rows="3" value={formData.address} onChange={handleInputChange} onBlur={handleBlur} className={errors.address ? 'error' : ''}></textarea>
+                  {errors.address && <div className="error-message">{errors.address}</div>}
+                </div>
+
+                <div className="form-group full-width">
+                  <label htmlFor="notes">Additional Notes (optional)</label>
+                  <textarea id="notes" name="notes" placeholder="Preferred delivery time, special instructions, etc." rows="2" value={formData.notes} onChange={handleInputChange}></textarea>
+                </div>
+
+                <div className="form-buttons">
+                  <button className="btn btn-primary btn-3d" type="submit" style={{ width: "200px", background: "linear-gradient(135deg, #005faf 0%, #005faf 100%)" }}>
+                    Send on WhatsApp
+                  </button>
+                </div>
+
+              </div>
+            </form>
           </div>
         </div>
       </div>

@@ -42,7 +42,7 @@ const ProductsSection = () => {
       description:
         "Our signature large-format bottle, ideal for water dispensers in homes, offices, clinics, and shops.",
       tag: "Most Popular",
-      images: ["images/360/bottle-360/pic3.png"],
+      images: ["images/360/bottle-360/pic3.jpeg"],
     },
     //   {
     //   id: 3,
