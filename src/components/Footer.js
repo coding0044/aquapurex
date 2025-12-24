@@ -34,7 +34,7 @@ const Footer = ({ scrollToId }) => {
               </div>
               <div>
                 <div className="brand-text-title">AquaPureX</div>
-                <div className="brand-text-sub">Pure Water – Advanced Technology</div>
+                <div className="brand-text-sub">Pure Water – Advanced Technology - Since 2015</div>
               </div>
             </div>
             <p>
