@@ -58,7 +58,8 @@ const ContactSection = () => {
           <div className="section-kicker">Contact</div>
           <h2 className="section-title">We're Here to Help.</h2>
           <p className="section-subtitle">
-            Have questions about delivery areas, bulk orders, or partnerships? Reach out to our team and we'll be happy to assist.
+            Have questions about delivery areas, bulk orders, bulk orders
+for ceremonies, events, and functions. Reach out to our team and we'll be happy to assist.
           </p>
         </div>
 
@@ -69,7 +70,7 @@ const ContactSection = () => {
               <h3 className="card-title">Contact Details</h3>
               <p className="card-text"><strong>Phone:</strong> 0371-1724801</p>
               <p className="card-text"><strong>Address:</strong> Ali Town, Main Boulevard, Johar Town, Lahore</p>
-              <p className="card-text"><strong>Hours:</strong> 9:00 AM – 10:00 PM, 7 days a week</p>
+              <p className="card-text"><strong>Hours:</strong> 8:00 AM – 11:00 PM, 7 days a week</p>
               
               <div style={{marginTop: '1rem', display: 'flex', gap: '0.5rem'}}>
                 <button className="btn btn-primary btn-3d" onClick={callNow} style={{color:'white'}}>
@@ -113,7 +114,7 @@ const ContactSection = () => {
                   <textarea
                     rows="3"
                     name="message"
-                    placeholder="How can we help you?"
+                    placeholder="Address/Location"
                     value={formData.message}
                     onChange={handleInputChange}
                     required

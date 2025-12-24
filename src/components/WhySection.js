@@ -105,7 +105,7 @@ const WhySection = () => {
     {
       id: 4,
       icon: '🚚',
-      title: 'Free Delivery in Lahore',
+      title: 'Free Delivery in Lahore — Coming Soon to Multan and Faisalabad',
       text: 'Fast, reliable, free delivery across Lahore to home, office, or shop.',
       gradient: 'linear-gradient(135deg, #005faf, #0066cc)',
       stats: 'Same Day Delivery'
