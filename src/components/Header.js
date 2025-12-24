@@ -115,9 +115,10 @@ const Header = ({ scrollToId }) => {
               className="brand-logo"
             />
             <div>
-              <div className="brand-text-title">AquaPureX</div>
+              <div className="brand-text-title" style={{marginTop:'-15px'}}>AquaPureX</div>
               <div className="brand-text-sub">
-                Pure Water – Advanced Technology - Since 2015
+                Pure Water – Advanced Technology 
+                <br /> Since 2015
               </div>
             </div>
 

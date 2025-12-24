@@ -73,7 +73,7 @@ const TestimonialsSection = () => {
   };
 
   const callNow = () => {
-    window.location.href = 'tel:03020758141';
+    window.location.href = 'tel:+923711724801';
   };
 
   const renderStars = (count) => {

@@ -44,15 +44,15 @@ const ProductsSection = () => {
       tag: "Most Popular",
       images: ["images/360/bottle-360/pic3.png"],
     },
-      {
-      id: 3,
-      title: "19L Home & Office Bottle",
-      size: "For dispensers, families & workplaces",
-      description:
-        "Our signature large-format bottle, ideal for water dispensers in homes, offices, clinics, and shops.",
-      tag: "Most Popular",
-      images: ["images/360/bottle-360/pic4.png"],
-    },
+    //   {
+    //   id: 3,
+    //   title: "19L Home & Office Bottle",
+    //   size: "For dispensers, families & workplaces",
+    //   description:
+    //     "Our signature large-format bottle, ideal for water dispensers in homes, offices, clinics, and shops.",
+    //   tag: "Most Popular",
+    //   images: ["images/360/bottle-360/pic4.png"],
+    // },
   ];
 
   /* Auto Play */
@@ -78,7 +78,13 @@ const ProductsSection = () => {
   const openWhatsAppOrder = (productName) => {
     const phone = "+923711724801";
     const msg = encodeURIComponent(
-      `Salam AquaPureX, I would like to place an order for ${productName}.`
+      `Assalam-o-Alaikum AquaPureX, I want to order 19L bottles.
+       Name: 
+       Phone:
+       Quantity:
+       Area: 
+       Address: 
+       Preferred Time: `
     );
     window.open(`https://wa.me/${phone}?text=${msg}`, "_blank");
   };

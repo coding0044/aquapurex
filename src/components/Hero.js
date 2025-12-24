@@ -47,7 +47,7 @@ const Hero = ({ scrollToId }) => {
           <div className="bottles-container">
             <div className="bottle-right">
               <img
-                src="/images/360/bottle-360/frame_000.jpg"
+                src="/images/360/bottle-360/frame_000.png"
                 alt="AquaPureX Bottle"
                 draggable="false"
               />
