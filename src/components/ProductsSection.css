@@ -355,6 +355,9 @@ width: 295px;
     font-size: 1rem;
   }
   
+  .product-column {
+  width: 100%;
+}
   .section-description {
     font-size: 1rem;
     margin-bottom: 2rem;
