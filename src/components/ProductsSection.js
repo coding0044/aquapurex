@@ -13,7 +13,10 @@ const ProductsSection = () => {
     triggerOnce: true,
   });
 
-  const products = [
+
+
+
+    const products = [
     {
       id: 1,
       title: "19L Home & Office Bottle",
@@ -40,6 +43,15 @@ const ProductsSection = () => {
         "Our signature large-format bottle, ideal for water dispensers in homes, offices, clinics, and shops.",
       tag: "Most Popular",
       images: ["images/360/bottle-360/pic3.png"],
+    },
+      {
+      id: 3,
+      title: "19L Home & Office Bottle",
+      size: "For dispensers, families & workplaces",
+      description:
+        "Our signature large-format bottle, ideal for water dispensers in homes, offices, clinics, and shops.",
+      tag: "Most Popular",
+      images: ["images/360/bottle-360/pic4.png"],
     },
   ];
 
@@ -82,7 +94,7 @@ const ProductsSection = () => {
     <section id="products" className="products-section" ref={ref}>
       <div className="section-kicker">Our Premium Products</div>
 
-      <p className="section-description">
+ <p className="section-description">
         We offer a wide range of premium bottled water, including 19-liter,
         6-liter, 1.5-liter, and 500-ml bottles.
       </p>
@@ -103,9 +115,7 @@ const ProductsSection = () => {
                 <div
                   className="slider-track"
                   style={{
-                    transform: `translateX(-${
-                      selectedProduct * 33.333
-                    }%)`,
+                    transform: `translateX(-${selectedProduct * (100 / products.length)}%)`,
                   }}
                 >
                   {products.map((product) => (
@@ -142,6 +152,7 @@ const ProductsSection = () => {
                       selectedProduct === index ? "active" : ""
                     }`}
                     onClick={() => handleProductClick(index)}
+                    aria-label={`Go to product ${index + 1}`}
                   />
                 ))}
               </div>

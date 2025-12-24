@@ -85,17 +85,18 @@
 
 .slider-track {
   display: flex;
-  width: 300%;
+  width: 400%; /* 100% * number of products (4) */
   height: 100%;
   transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .slide {
-  width: 33.333%;
+  width: 25%; /* 100% / number of products (4) */
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 /* ================== PRODUCT HEADER ================== */
@@ -104,6 +105,7 @@
   align-items: center;
   gap: 2.2rem;
   width: 100%;
+  padding: 0 2rem;
 }
 
 .product-image-container {
@@ -115,11 +117,13 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  flex-shrink: 0;
 }
 
 .product-image {
-  width: 145%;
-  height: 105%;
+  max-width: 145%;
+  max-height: 105%;
+  object-fit: contain;
   border-radius: 14px;
   transition: transform 0.35s ease;
 }
@@ -173,6 +177,7 @@
   border-radius: 12px;
   border-left: 5px solid #00aaff;
   text-align: left;
+  min-height: 90px;
 }
 
 /* ================== INDICATORS ================== */
@@ -183,6 +188,7 @@
   position: absolute;
   bottom: 8px;
   width: 100%;
+  z-index: 10;
 }
 
 .indicator {
@@ -192,7 +198,13 @@
   border: 2px solid #003b73;
   background: rgba(255, 255, 255, 0.8);
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.indicator:hover {
+  transform: scale(1.2);
+  background: #00aaff;
 }
 
 .indicator.active {
@@ -230,6 +242,8 @@
   display: inline-flex;
   align-items: center;
   gap: 0.8rem;
+  transition: all 0.3s ease;
+  outline: none;
 }
 
 .btn-primary {
@@ -240,6 +254,7 @@
 
 .btn-primary:hover {
   transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 59, 115, 0.45);
 }
 
 /* ================== PULSE EFFECT ================== */
@@ -250,41 +265,98 @@
 .pulse-animation::before {
   content: "";
   position: absolute;
-  inset: 0;
-  border-radius: 32px;
-  border: 2px solid transparent;
+  inset: -2px;
+  border-radius: 34px; /* button radius + 2px */
+  border: 2px solid #00aaff;
   animation: pulseBorder 2s infinite;
+  pointer-events: none;
 }
 
 @keyframes pulseBorder {
-  0% { opacity: 0.5; }
-  50% { opacity: 1; }
-  100% { opacity: 0.5; }
+  0% { 
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+  100% { 
+    opacity: 0.3;
+    transform: scale(1);
+  }
 }
 
 /* ================== RESPONSIVE ================== */
+@media (max-width: 992px) {
+  .product-header {
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+  
+  .product-image-container {
+    width: 220px;
+    height: 220px;
+  }
+}
+
 @media (max-width: 768px) {
+  .products-section {
+    padding: 3rem 1rem;
+  }
+  
+  .product-card {
+    padding: 1.5rem;
+  }
+  
+  .slider-container {
+    height: 480px;
+  }
+  
   .product-header {
     flex-direction: column;
     text-align: center;
+    gap: 1.5rem;
   }
-
+  
   .product-text {
     text-align: center;
+    max-width: 100%;
   }
-
-  .slider-container {
-    height: 480px;
+  
+  .product-title {
+    font-size: 1.6rem;
+  }
+  
+  .product-description {
+    text-align: center;
+    font-size: 1rem;
+    padding: 1rem;
+  }
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 1rem 2rem;
   }
 }
 
 @media (max-width: 480px) {
   .slider-container {
-    height: 440px;
+    height: 500px;
   }
-
-  .btn {
-    width: 100%;
-    justify-content: center;
+  
+  .product-image-container {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .section-kicker {
+    font-size: 1rem;
+  }
+  
+  .section-description {
+    font-size: 1rem;
+    margin-bottom: 2rem;
   }
 }
