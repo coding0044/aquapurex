@@ -461,7 +461,6 @@
 /* Add this for the required field asterisk */
 .form-group label:has(~ input:required)::after,
 .form-group label:has(~ textarea:required)::after {
-  content: '*';
   color: #ef4444;
   font-size: 0.9rem;
 }
