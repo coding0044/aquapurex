@@ -115,10 +115,11 @@ const Header = ({ scrollToId }) => {
               className="brand-logo"
             />
             <div>
-              <div className="brand-text-title" style={{marginTop:'-15px'}}>Aqua <p style={{color: "rgb(134 200 72)" , marginTop: "-28px" , marginLeft: "53px", marginBottom: "-6px"}}>PureX</p></div>
+
+              <div className="brand-text-title" >Aqua <p  className='pure'>PureX</p></div>
               <div className="brand-text-sub">
                 Pure Water – Advanced Technology 
-                <br /> Since 2015
+                  <p  className='since'>Since 2015</p> 
               </div>
             </div>
 

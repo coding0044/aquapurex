@@ -96,6 +96,22 @@ header.hidden {
   margin-top: 2px;
 }
 
+
+.pure{
+      color: rgb(134, 200, 72);
+    margin-top: -27px;
+    font-size: 17px;
+    margin-left: 52px;
+}
+
+.since{
+  margin-top: -2px;
+    margin-left: 179px;
+    font-size: 9px;
+}
+
+
+
 /* ================= DESKTOP NAV LINKS ================= */
 .nav-links {
   display: flex;
@@ -422,7 +438,15 @@ header.hidden {
   .brand {
     gap: 0.5rem;
   }
+  .pure{
+        margin-left: 48px;
+        margin-top: -26px;
+  }
 
+    .since{
+        margin-left: 167px;
+
+  }
   .brand-logo {
     height: 35px;
   }

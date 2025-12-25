@@ -7,6 +7,20 @@ footer {
   overflow: hidden;
 }
 
+.pure{
+      color: rgb(134, 200, 72);
+    margin-top: -27px;
+    font-size: 17px;
+    margin-left: 52px;
+}
+
+.since{
+  margin-top: -2px;
+    margin-left: 179px;
+    font-size: 9px;
+}
+
+
 footer::before {
   content: '';
   position: absolute;
@@ -193,6 +207,16 @@ footer p {
     align-items: center;
     text-align: center;
     gap: 0.8rem;
+  }
+
+  .since{
+        margin-left: 167px;
+
+  }
+
+    .pure{
+        margin-left: 48px;
+        margin-top: -26px;
   }
   
   .social-pill {

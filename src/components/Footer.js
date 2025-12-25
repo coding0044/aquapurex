@@ -34,14 +34,14 @@ const Footer = ({ scrollToId }) => {
               </div>
               <div>
 
-              <div className="brand-text-title" style={{marginTop:'-15px'}}>Aqua <p style={{color: "rgb(134 200 72)" , marginTop: "-23px" , marginLeft: "54px"}}>PureX</p></div>
-
+              <div className="brand-text-title" >Aqua <p className='pure'>PureX</p></div>
 
                 <div className="brand-text-sub">Pure Water – Advanced Technology 
-                  <br /> Since 2015</div>
+                  <p  className='since'>Since 2015</p> </div>
               </div>
             </div>
             <p>
+              <br />
               AquaPureX delivers premium, lab-tested drinking water with advanced RO + UV purification and balanced minerals, trusted by families across Lahore.
             </p>
           </div>

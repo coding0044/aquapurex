@@ -99,8 +99,8 @@ const ContactSection = () => {
 
     const { name, phone, bottles, location, address, notes } = formData;
 
-    const text = 
-`Assalam-o-Alaikum AquaPureX 
+    const text =
+      `Assalam-o-Alaikum AquaPureX 
 
 I would like to place a new order for 19L Water Bottles.
 
@@ -178,10 +178,18 @@ ${notes || 'No special instructions'}`;
 
                   <div className="form-group">
                     <label htmlFor="bottles">Number of 19L Bottles *</label>
-                    <select id="bottles" name="bottles" value={formData.bottles} onChange={handleInputChange}>
-                      {bottleOptions.map(num => <option key={num} value={num}>{num}</option>)}
-                    </select>
+                    <input
+                      type="number"
+                      id="bottles"
+                      name="bottles"
+                      value={formData.bottles}
+                      onChange={handleInputChange}
+                      min="1"
+                      placeholder="Enter number of bottles"
+                      required
+                    />
                   </div>
+
 
                   <div className="form-group">
                     <label htmlFor="location">Location / Area *</label>
