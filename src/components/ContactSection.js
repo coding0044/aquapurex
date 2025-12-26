@@ -22,6 +22,34 @@ const ContactSection = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    
+    // Special handling for bottles field to prevent negative numbers and zero
+    if (name === 'bottles') {
+      const numValue = parseInt(value, 10);
+      // Only update if it's a valid positive number (greater than 0)
+      if (!isNaN(numValue) && numValue > 0) {
+        setFormData(prev => ({
+          ...prev,
+          [name]: value
+        }));
+      } else if (value === '') {
+        // Allow empty for validation purposes
+        setFormData(prev => ({
+          ...prev,
+          [name]: ''
+        }));
+      }
+      // Clear any existing error for this field
+      if (errors[name]) {
+        setErrors(prev => ({
+          ...prev,
+          [name]: ''
+        }));
+      }
+      return;
+    }
+    
+    // For other fields
     setFormData(prev => ({
       ...prev,
       [name]: value
@@ -54,6 +82,14 @@ const ContactSection = () => {
         if (!value.trim()) error = 'Phone number is required';
         else if (!/^03\d{9}$/.test(value.replace(/\D/g, ''))) error = 'Enter a valid Pakistani number (03XXXXXXXXX)';
         break;
+      case 'bottles':
+        if (!value.trim()) error = 'Number of bottles is required';
+        else {
+          const numValue = parseInt(value, 10);
+          if (isNaN(numValue) || numValue < 1) error = 'Must order at least 1 bottle';
+          else if (numValue > 100) error = 'Maximum 100 bottles per order';
+        }
+        break;
       case 'location':
         if (!value.trim()) error = 'Location is required';
         break;
@@ -78,6 +114,14 @@ const ContactSection = () => {
     if (!formData.phone.trim()) { newErrors.phone = 'Phone number is required'; isValid = false; }
     else if (!/^03\d{9}$/.test(formData.phone.replace(/\D/g, ''))) { newErrors.phone = 'Enter a valid Pakistani number (03XXXXXXXXX)'; isValid = false; }
 
+    // Bottles validation - ensures at least 1 bottle
+    if (!formData.bottles.trim()) { newErrors.bottles = 'Number of bottles is required'; isValid = false; }
+    else {
+      const numValue = parseInt(formData.bottles, 10);
+      if (isNaN(numValue) || numValue < 1) { newErrors.bottles = 'Must order at least 1 bottle'; isValid = false; }
+      else if (numValue > 100) { newErrors.bottles = 'Maximum 100 bottles per order'; isValid = false; }
+    }
+
     if (!formData.location.trim()) { newErrors.location = 'Location is required'; isValid = false; }
 
     if (!formData.address.trim()) { newErrors.address = 'Delivery address is required'; isValid = false; }
@@ -89,7 +133,7 @@ const ContactSection = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    setTouched({ name: true, phone: true, location: true, address: true });
+    setTouched({ name: true, phone: true, bottles: true, location: true, address: true });
 
     if (!validateForm()) {
       const firstErrorField = document.querySelector('.error');
@@ -140,8 +184,6 @@ ${notes || 'No special instructions'}`;
     window.location.href = 'tel:+923711724801';
   };
 
-  const bottleOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 20];
-
   return (
     <section id="contact">
       <div className="section-inner">
@@ -184,12 +226,15 @@ ${notes || 'No special instructions'}`;
                       name="bottles"
                       value={formData.bottles}
                       onChange={handleInputChange}
+                      onBlur={handleBlur}
                       min="1"
+                      max="100"
                       placeholder="Enter number of bottles"
                       required
+                      className={errors.bottles ? 'error' : ''}
                     />
+                    {errors.bottles && <div className="error-message">{errors.bottles}</div>}
                   </div>
-
 
                   <div className="form-group">
                     <label htmlFor="location">Location / Area *</label>

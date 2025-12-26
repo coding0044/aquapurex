@@ -38,7 +38,7 @@ const Header = ({ scrollToId }) => {
           setLastScrollY(currentScrollY);
           
           // Active section highlight
-          const sections = ['hero', 'why', 'products', 'process', 'order', 'contact'];
+          const sections = ['hero', 'why-AquaPureX', 'products', 'process', 'order', 'contact'];
           const scrollPosition = currentScrollY + 100;
           
           for (const section of sections) {
@@ -127,7 +127,7 @@ const Header = ({ scrollToId }) => {
 
           {/* DESKTOP LINKS */}
           <div className="nav-links">
-            {['hero', 'why AquaPureX', 'products', 'process', 'contact'].map((item) => (
+            {['hero', 'why-AquaPureX', 'products', 'process', 'contact'].map((item) => (
               <a
                 key={item}
                 href={`#${item}`}
@@ -172,7 +172,7 @@ const Header = ({ scrollToId }) => {
 
         {/* MOBILE MENU */}
         <div className={`nav-mobile ${isMobileMenuOpen ? 'open' : ''}`}>
-          {['hero', 'why AquaPureX', 'products', 'process', 'contact'].map(
+          {['hero', 'why-AquaPureX', 'products', 'process', 'contact'].map(
             (item) => (
               <a 
                 key={item} 

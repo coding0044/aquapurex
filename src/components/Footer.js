@@ -51,10 +51,10 @@ const Footer = ({ scrollToId }) => {
             <div className="footer-heading">Quick Links</div>
             <div className="footer-links">
               <a href="#hero" onClick={(e) => { e.preventDefault(); scrollToId('hero'); }}>Home</a>
-              <a href="#why" onClick={(e) => { e.preventDefault(); scrollToId('why'); }}>Why AquaPureX</a>
+              <a href="#why-AquaPureX" onClick={(e) => { e.preventDefault(); scrollToId('why-AquaPureX'); }}>Why AquaPureX</a>
               <a href="#products" onClick={(e) => { e.preventDefault(); scrollToId('products'); }}>Products</a>
               <a href="#process" onClick={(e) => { e.preventDefault(); scrollToId('process'); }}>Purification</a>
-              <a href="#order" onClick={(e) => { e.preventDefault(); scrollToId('order'); }}>Order Online</a>
+              <a href="#order" onClick={(e) => { e.preventDefault(); scrollToId('contact'); }}>Order Online</a>
             </div>
           </div>
 
