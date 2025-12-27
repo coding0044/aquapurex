@@ -108,7 +108,7 @@ const Header = ({ scrollToId }) => {
       <header className={hidden ? 'hidden' : ''}>
         <nav className="nav">
           {/* BRAND */}
-          <div className="brand" onClick={() => handleNavClick('hero')} style={{    marginLeft: "108px"}}>
+          <div className="brand" onClick={() => handleNavClick('hero')} >
             <img
               src="images/360/bottle-360/LogoDesign.png"                                                                                                             
               alt="AquaPureX"
