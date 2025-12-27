@@ -32,7 +32,7 @@ const Footer = ({ scrollToId }) => {
               <div className="brand-logo">
                 <img src="images/360/bottle-360/LogoDesign.png" alt="AquaPureX logo" />
               </div>
-              <div>
+              <div className='new1'>
 
               <div className="brand-text-title" >Aqua <p className='pure'>PureX</p></div>
 
