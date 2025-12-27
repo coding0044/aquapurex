@@ -119,7 +119,6 @@ const Header = ({ scrollToId }) => {
               <div className="brand-text-title" >Aqua <p  className='pure'>PureX</p></div>
               <div className="brand-text-sub">
                 Pure Water – Advanced Technology 
-                  <p  className='since'>Since 2015</p> 
               </div>
             </div>
 

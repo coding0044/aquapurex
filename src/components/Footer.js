@@ -37,13 +37,12 @@ const Footer = ({ scrollToId }) => {
               <div className="brand-text-title" >Aqua <p className='pure'>PureX</p></div>
 
                 <div className="brand-text-sub">Pure Water – Advanced Technology 
-                  <p  className='since'>Since 2015</p> </div>
+                 </div>
               </div>
             </div>
             <p>
               <br />
-              AquaPureX delivers premium, lab-tested drinking water with advanced RO + UV purification and balanced minerals, trusted by families across Lahore.
-            </p>
+Established Since 2015 Licensed by Punjab Food Authority           </p>
           </div>
 
           {/* QUICK LINKS */}
