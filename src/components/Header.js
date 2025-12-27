@@ -38,7 +38,7 @@ const Header = ({ scrollToId }) => {
           setLastScrollY(currentScrollY);
           
           // Active section highlight
-          const sections = ['hero', 'why-AquaPureX', 'products', 'process', 'order', 'contact'];
+          const sections = ['hero', 'why AquaPureX', 'products', 'process', 'order', 'contact'];
           const scrollPosition = currentScrollY + 100;
           
           for (const section of sections) {
