@@ -60,11 +60,12 @@ footer::before {
 
 
 .brand-logo {
- width: 69px;
-    height: 90px;
+width: 51px;
+    height: 77px;
     border-radius: 8px;
     overflow: hidden;
     display: flex;
+    margin-left: -18px;
     align-items: center;
     justify-content: center;
 }
@@ -80,6 +81,8 @@ footer::before {
   font-size: 1.2rem;
   font-weight: 700;
   color: #fff;
+      margin-top: -7px;
+
 }
 
 .brand-text-sub {

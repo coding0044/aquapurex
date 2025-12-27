@@ -40,9 +40,10 @@ const Footer = ({ scrollToId }) => {
                  </div>
               </div>
             </div>
-            <p>
+            <p style={{marginLeft:"18px"}}>
               <br />
-Established Since 2015 Licensed by Punjab Food Authority           </p>
+Established Since 2015 
+<br />Licensed by Punjab Food Authority           </p>
           </div>
 
           {/* QUICK LINKS */}
