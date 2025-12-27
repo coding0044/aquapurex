@@ -127,7 +127,7 @@ const Header = ({ scrollToId }) => {
 
           {/* DESKTOP LINKS */}
           <div className="nav-links">
-            {['hero', 'why-AquaPureX', 'products', 'process', 'contact'].map((item) => (
+            {['hero', 'why AquaPureX', 'products', 'process', 'contact'].map((item) => (
               <a
                 key={item}
                 href={`#${item}`}
@@ -172,7 +172,7 @@ const Header = ({ scrollToId }) => {
 
         {/* MOBILE MENU */}
         <div className={`nav-mobile ${isMobileMenuOpen ? 'open' : ''}`}>
-          {['hero', 'why-AquaPureX', 'products', 'process', 'contact'].map(
+          {['hero', 'why AquaPureX', 'products', 'process', 'contact'].map(
             (item) => (
               <a 
                 key={item} 
