@@ -78,6 +78,9 @@ header.hidden {
 }
 
 
+.margin{
+   margin-left: 38px;
+}
 
 .brand-logo {
   height: 50px;
@@ -535,5 +538,8 @@ html {
 @media (max-width: 480px) {
   html {
     scroll-padding-top: 65px;
+  }
+  .margin{
+    margin-left: 0px;
   }
 }
